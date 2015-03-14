@@ -1,0 +1,161 @@
+body {
+ color: #000000;
+ font: normal 11pt Arial;
+ background-color: #999999;
+ margin:0;
+ text-align:justify;
+}
+
+table.twrap {
+ border-collapse:collapse;
+ border: 0;
+ width:100%;
+ margin:0;
+ padding:0;
+}
+
+div.wrap {
+ margin:auto; 
+ position:relative; 
+ width:900px;
+}
+
+td.navbar {
+ width: 13em;
+ padding: 1em .25em 1em 0;
+ background-color:#003399;
+ border-right: solid .25em black;
+ text-align: right;
+ vertical-align: top;
+}
+
+div.topbar {
+ height: 5px;
+ margin:0;
+ padding:0;
+ background-color:#cccccc;
+ border:0;
+}
+
+td.rightbar {
+ /*width: 15%;*/
+ width: auto;
+ padding:0;
+ margin:0;
+ background-color: #cccccc;
+}
+
+div.rightbar {
+ width: 15%;
+ background-color: #cccccc;
+ float: right;
+ height: 126px;
+ margin: 0;
+}
+
+td.bottombar {
+ height: 6px; 
+ /*padding: 0 1.25em 0 1.25em;*/
+ background-color: #000000; /*#006699; */
+ width: 100%;
+ margin: 0;
+ padding:0;
+}
+
+div.header {
+ /*padding: 1.25em; */
+ text-align:left;
+ position:relative;
+ border-bottom:5px solid black;
+ width: 900px;
+ height:120px;
+ margin: 0;
+ clear: none;
+ background-color: #003399;
+ /*background: #e8e8e8 url('/images/logobanner.jpg') no-repeat fixed center;*/
+}
+
+div.contactus {
+ float: right; 
+ height:2em; 
+ position:relative; 
+ top:115px; 
+ margin-top:-1em;      
+ margin-right:0.5em; 
+ font-weight:bold; 
+ color:white;
+}
+
+.header a:link{ color:#FFF; }
+.header a:visited{ color: #FFF; }
+.header a:hover{ color: #FFF; }
+.header a:active{ color: #FFF; }
+
+td.contents {
+ /*margin-left: 12em;*/
+ padding: 2em;
+ background-color: #ffffff; 
+ text-align: justify;
+ vertical-align: top;
+ /*width: 50em;*/
+}
+
+div.contenttitle {
+font-size: 120%;
+font-weight: bold;
+margin-bottom:1em;
+}
+
+div.footer {
+ padding: 1em 0em;
+ text-align: center;
+ background-color: #003399;
+ width: 900px;
+ /*width: 100%;*/
+ font-size: 75%;
+ font-weight:bold;
+ border-top: 4px solid black;
+}
+
+a:link { color: #003399; }
+a:visited { color: #660099; }
+a:hover { color: #0000AA; }
+a:active { color: #003399;  }
+
+img {
+ border: none;
+}
+
+a.restitle {
+font-size: 110%;
+font-weight: bold;
+}
+
+div.resdesc {
+margin-bottom:1em;
+}
+
+a.newslinks {
+ display: block;
+ padding: .5em 0;
+}
+
+input {
+display:inline; 
+}
+
+table.coursetable{
+text-align:left;
+}
+
+table.saltable td {
+ padding:0 2em;
+}
+table.saltable tr>td:first-child {
+ text-align:right;
+ font-weight:bold;
+}
+
+ul {
+margin:0;
+}

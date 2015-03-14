@@ -1,0 +1,92 @@
+---
+ - hosts: all
+   remote_user: root
+   vars:
+     http_port: 80
+     clone_repo: true
+   vars_files:
+     - deploy_key.yml
+   tasks:
+     - apt: name=apt-transport-https
+     - apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=36A1D7869245C8950F966E92D8576A8BA88D21E9
+     - apt_repository: repo='deb https://get.docker.com/ubuntu docker main'
+     - apt: name=linux-image-extra-{{ ansible_kernel }}
+     - name: Install packages
+       apt: name={{ item }}
+       with_items:
+         - lxc-docker-1.5.0
+         - s3cmd
+         - python-pip
+     - shell: easy_install -U pip  # Fix bug with pip/requests lib
+     - pip: name=docker-py version=1.1.0
+     - copy: content="{{ deploy_key }}" dest=/etc/deploy.key mode=0600 owner=root
+     - name: Clone Repo
+       git:
+         repo: ssh://git@github.com:keitwb/keithvaluation
+         dest: /srv/keithvaluation
+         accept_hostkey: yes
+         key_file: /etc/deploy.key
+       when: clone_repo
+     - docker_image: name=kv-app path=/srv/keithvaluation state=build
+     - docker_image: name=kv-nginx path=/srv/keithvaluation/docker/nginx state=build
+     - name: Data container
+       docker:
+         state: present
+         volumes: /data
+         name: kv-data-1
+         image: kv-app
+         command: "true"
+     - name: Remove old containers
+       shell: docker ps -a | grep {{ item }} && docker stop {{ item }} && docker rm {{ item }} || true
+       with_items:
+         - kv-app-1
+         - kv-admin-1
+         - kv-nginx-1
+     - name: create app container
+       shell: >
+         docker run
+         --volumes-from kv-data-1
+         --restart=always
+         -d
+         -e DJANGO_SETTINGS_MODULE=keithvaluation.settings.app
+         -e GUNICORN_WORKERS=4
+         -e DO_DJANGO_SETUP=1
+         --name kv-app-1
+         kv-app
+     - name: create admin container
+       shell: >
+         docker run
+         --volumes-from kv-data-1
+         --restart=always
+         -d
+         -e DJANGO_SETTINGS_MODULE=keithvaluation.settings.admin
+         -e GUNICORN_WORKERS=1
+         -e DO_DJANGO_SETUP=1
+         --name kv-admin-1
+         kv-app
+     - template: src=templates/create_users.py.j2 dest=/tmp/create_users.py
+     - name: setup admin users
+       shell: >
+         docker run
+         -e DJANGO_SETTINGS_MODULE=keithvaluation.settings.admin
+         -e PYTHONPATH=/app
+         -v /tmp/create_users.py:/tmp/create_users.py
+         --volumes-from kv-data-1
+         --rm
+         kv-app
+         python /tmp/create_users.py
+     - name: create nginx container
+       shell: >
+         docker run
+         -e APP_HOSTNAME={{ app_hostname }}
+         -e ADMIN_HOSTNAME={{ admin_hostname }}
+         --link kv-app-1:app
+         --link kv-admin-1:admin
+         --volumes-from kv-data-1
+         -p "80:80"
+         -p "443:443"
+         --restart always
+         -d
+         --name kv-nginx-1
+         kv-nginx
+

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="contenttitle">Newsletters</div>
+<div style="font-weight:bold;">
+  <a href="{% url newsletters %}">Newsletter Archive</a><br />
+  <a href="{% url subscribe %}">Subscribe to Newsletter</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="contenttitle">About Us</div>
+<div style="font-weight:bold;">
+  <a href="{% url purpose %}">Purpose</a><br />
+  <a href="{% url services %}">Services</a><br />
+  <a href="{% url history %}">History</a><br />
+  <a href="{% url experience %}">Experience</a>
+</div>
+
+{% endblock %}

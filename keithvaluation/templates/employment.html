@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="contenttitle">
+  	Employment
+  </div>
+  <div>
+   <p>
+    Tom J. Keith &amp; Associates is always looking for qualified individuals. Applicants should be a college graduate or have Appraisal Experience. Preferred degrees include Business Administration, Economics, Finance, Accounting, Engineering, Geography, Math, Statistics, Construction, Surveying, Appraising, Meteorology, Music, Forestry, Computer Science, and Other Technical Degrees.</p>
+   Upon Being Accepted for Employment, Applicant must have the following:
+   <ul style="padding-left:2em;">
+     <li>Real Estate Appraisal Trainee License</li>
+     <li>Real Estate Broker's License</li>
+     <li>The applicant should have completed the following courses required for the Certified General Appraiser License:</li>
+   </ul>
+  </div>
+  <div style="width:75%; margin-left:auto; margin-right:auto; padding-top:1em;">
+   <table class="coursetable">
+    <tr>
+     <td style="font-weight:bold; text-align:center" colspan="2">Preferred Courses Offered by the Appraisal Institute</td>
+    </tr>
+    <tr>
+     <td style="font-weight:bold;">Course Title</td>
+     <td style="text-align:right; font-weight:bold;">Hours</td>
+    </tr>
+    <tr>
+     <td>Basic Appraisal Principles</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>Basic Appraisal Procedures</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>National Uniform Standards of Professional Appraisal Practice (USPAP) Course</td><td style="text-align:right">15</td>
+    </tr>
+    <tr>
+      <td>Real Estate Finance, Statistics, and Valuation Modeling</td><td style="text-align:right">15</td>
+    </tr>
+    <tr>
+      <td>General Market Analysis and Highest &amp; Best Use</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>General Appraiser Sales Comparison Approach</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>General Appraiser Site Valuation and Cost Approach</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>General Appraiser Income Approach / Part 1</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>General Appraiser Income Approach / Part 2</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>General Appraiser Report Writing and Case Studies</td><td style="text-align:right">30</td>
+    </tr>
+    <tr>
+      <td>Electives</td><td style="text-align:right">30</td>
+    </tr>
+    <tr style="font-weight:bold;">
+      <td>Total</td><td style="text-align:right">300</td>
+    </tr>
+  </table>
+  </div>
+
+  <div style="padding-top:1em;">
+      Other requirements include:
+      <ul style="padding-left:2em;">
+      <li>Verification of proficiency in Microsoft Office</li>
+      <li>Verification of proficiency in typing and 10-key</li>
+        <li>Interviewing, Analytical, Organizational, Research Skills</li>
+        <li>Strong Work Ethic</li>
+        <li>The applicant must be a team player in office environment with interpersonal skills in dealing with clients and the general public</li>
+        <li>Two Year Non Compete Agreement</li>
+      </ul>
+
+      <p>For more information on the state requirements and how to find these courses, please visit <a href="{% url 'become-appraiser' %}" style="font-weight:bold;"> How to Become an Appraiser</a>.</p>
+
+    <div style="padding-top:1em;">
+      <a href="{% url 'salary' %}">Review Compensation Potential</a><br />
+      <a href="mailto:info@keithvaluation.com">Submit a Resume</a>
+    </div>
+  </div>
+
+{% endblock %}

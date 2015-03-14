@@ -1,0 +1,12 @@
+#!/bin/bash
+
+test -z $APP_HOSTNAME && echo 'You must specify $APP_HOSTNAME!' >&2 && exit 1
+test -z $ADMIN_HOSTNAME && echo 'You must specify $ADMIN_HOSTNAME!' >&2 && exit 1
+sed \
+  -e"s/<APP_HOSTNAME>/$APP_HOSTNAME/" \
+  -e"s/<ADMIN_HOSTNAME>/$ADMIN_HOSTNAME/" \
+  /tmp/site-template.conf > /etc/nginx/sites-enabled/keithvaluation.conf
+
+mkdir -p /data/logs/
+
+exec $@

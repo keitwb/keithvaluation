@@ -1,0 +1,13 @@
+{% extends 'list-pages/base.html' %}
+{% block topmatter %}
+  <div class="contenttitle">Useful Links</div>
+{% endblock %}
+
+{% block entries %}
+  {% for entry in object_list %}
+    <a href="{{ entry.url }}" class="restitle">{{ entry.title }}</a>
+    <div class="resdesc">
+      {{ entry.description }}
+    </div>
+  {% endfor %}
+{% endblock %}

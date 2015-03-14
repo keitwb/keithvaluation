@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="contenttitle">
+      Company News
+  </div>
+
+  {% regroup object_list by date|date:"F Y" as news_by_month %}
+
+  {% for month in news_by_month %}
+    <h1>{{ month.grouper }}</h1>
+
+    {% for n in month.list %}
+      <h2>{{ n.title }}</h2>
+      {{ n.content|linebreaks|safe }}
+    {% endfor %}
+  {% endfor %}
+
+{% endblock %}
+

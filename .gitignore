@@ -1,0 +1,5 @@
+keithvaluation/settings/local.py
+.vagrant
+
+*.pyc
+tmp/

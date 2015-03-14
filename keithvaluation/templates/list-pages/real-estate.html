@@ -1,0 +1,27 @@
+{% extends 'list-pages/base.html' %}
+
+{% block topmatter %}
+{% regroup object_list by get_subtype_display as type_list %}
+    <div class="contenttitle">
+        Real Estate Research by Tom Keith &amp; Associates, Inc.
+    </div>
+    <p>The research reports are available in PDF format.</p>
+    <p>Jump to:<br />
+ {% for type in type_list %}
+    <a href="#{{ type.grouper|slugify }}">{{ type.grouper }}</a><br />
+ {% endfor %}
+    </p>
+{% endblock %}
+
+{% block entries %}
+{% regroup object_list by get_subtype_display as type_list %}
+
+{% for type in type_list %}
+<div id="{{ type.grouper|slugify }}" class="contenttitle">{{ type.grouper }} Research</div>
+  {% for a in type.list %}
+    {% include 'list-pages/entry.html' with entry=a %}
+  {% endfor %}
+{% endfor %}
+
+{% endblock %}
+

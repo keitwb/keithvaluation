@@ -1,0 +1,91 @@
+.menutabs{
+padding: 0;
+/*background-color: #0000cc;*/
+}
+
+.menutabs ul{
+/*font: bold .9em Arial, Verdana, sans-serif;*/
+font-weight:bold;
+margin:0;
+padding:0;
+list-style:none;
+/*text-align:right;*/
+}
+
+.menutabs li{
+display: block;
+margin:0 0 0 0;
+padding:0;
+padding-top:0.25em;
+text-transform:none;
+}
+
+.menutabs a{
+display:block;
+color: white;
+margin:0 0 0 0;
+padding:0 0 0 0;
+text-decoration:none;
+letter-spacing: 1px;
+/*width: 12em;*/
+}
+
+.menutabs a span{
+background: transparent;
+padding: 0 0 0 0;
+}
+
+.menutabs a span{
+float:none;
+}
+
+.menutabs a:link{ color: #FFF; }
+.menutabs a:visited{ color: #FFF; }
+.menutabs a:hover{
+color: #000;
+background-color: #9CF;
+}
+.menutabs a:active{ color: #FFF; }
+ 
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #333333; /*THEME CHANGE HERE*/
+border-top-width: 8px;
+border-bottom-width: 0;
+font-size: 100%;
+text-align:left;
+line-height:18px;
+z-index:100;
+background-color: white;
+width: 200px;
+visibility: hidden;
+}
+
+
+.dropmenudiv a{
+width: auto;
+display: block;
+text-indent: 5px;
+border-top: 0 solid black;
+border-bottom: 1px solid black; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+color: black;
+font-weight: bold;
+}
+
+* html .dropmenudiv a{ /*IE only hack*/
+width: 100%;
+}
+
+.dropmenudiv a:link{ color: #000000; }
+.dropmenudiv a:visited{ color: #000000; }
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #0099cc;
+color: #000000;
+}
+.dropmenudiv a:active{ color: #000000; }

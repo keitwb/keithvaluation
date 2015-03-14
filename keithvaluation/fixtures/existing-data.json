@@ -1,0 +1,821 @@
+[
+    {
+        "fields": {
+            "description": "The chart illustrates the relationship between the value discount and the rate of distribution",
+            "document": "bv-research/discountanddistribution.pdf",
+            "title": "Discounts and Distribution Rates",
+            "updated_date": "2009-06-25"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart shows how the Price to Book ratio increases as the Return on Equity increases.",
+            "document": "bv-research/PtoBvsROE.pdf",
+            "title": "Price to Book vs. ROE",
+            "updated_date": "2009-06-25"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart illustrates how the price to revenue increases as the Return on Equity increases.",
+            "document": "bv-research/PtoRvsROE.pdf",
+            "title": "Price to Revenue vs ROE",
+            "updated_date": "2009-06-25"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart illustrates how the average P/E of public companies changes with the market and the size of the company.",
+            "document": "bv-research/pe_vs_market_value.pdf",
+            "title": "P/E vs. Market Value",
+            "updated_date": "2009-07-22"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart shows the relationship between the P/E ratios of a private company versus that of a public company.",
+            "document": "bv-research/public_private_pe.pdf",
+            "title": "P/E of Public vs. Private Companies",
+            "updated_date": "2009-07-22"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart illustrates the relationship between the size of a deal to the P/E Ratio.",
+            "document": "bv-research/size_vs_pe_ratio.pdf",
+            "title": "Size of Deal vs. P/E",
+            "updated_date": "2009-07-22"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "This article describes various terms related to financial statements and how they relate to business valuation.",
+            "document": "bv-research/ReconstructedFinancialStatements.pdf",
+            "title": "Reconstructed Financial Statements",
+            "updated_date": "2012-09-10"
+        },
+        "model": "keithvaluation.bvresearch"
+    },
+    {
+        "fields": {
+            "description": "The Tax Court calculated the discounts for lack of control and marketability for a family limited partnership and a 50% interest in a related general partnership owned by the FLP.",
+            "document": "courtcases/FCG E Flash 10.1.pdf",
+            "title": "Astleford v. Commissioner",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.courtcase"
+    },
+    {
+        "fields": {
+            "description": "The Eleventh Circuit overturned the Tax Court and allowed the estate a dollar-for-dollar reduction in fair market value for the hypothetical tax on trapped-in gains for a \"C\" corporation minority shareholder.",
+            "document": "courtcases/FCG E Flash 9.3.pdf",
+            "title": "Estate of Jelke et al v. Commissioner",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.courtcase"
+    },
+    {
+        "fields": {
+            "description": "Citing the incompetence of the valuation experts, the 2nd Circuit remanded for the Tax Court to determine if reliance on appraisers was reasonable and in good faith for purposes of an accuracy related penalty.",
+            "document": "courtcases/FCG E Flash 9.2.pdf",
+            "title": "Estate of Josephine T. Thompson et al. v. Commissioner",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.courtcase"
+    },
+    {
+        "fields": {
+            "description": "The Tax Court concluded that warrants had an ascertainable fair market value in 1995 and were taxable in that year.",
+            "document": "courtcases/FCG E Flash 9.1.pdf",
+            "title": "Kevin B. Kimberlin and Joni R. Steele v. Commissioner",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.courtcase"
+    },
+    {
+        "fields": {
+            "description": "The Tax Court rejected tax-affecting S Corporation earnings, concluding a stock transaction was a bargain sale and thus a gift.",
+            "document": "courtcases/FCG E Flash 8.3.pdf",
+            "title": "Dallas v. Commissioner",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.courtcase"
+    },
+    {
+        "fields": {
+            "description": "The Tax Court determined that sales of shares between family members in a closely held corporation were arm's-length transactions and supported the prices used for gift tax returns.",
+            "document": "courtcases/FCG E Flash 8.1.pdf",
+            "title": "Huber v. Commissioner",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.courtcase"
+    },
+    {
+        "fields": {
+            "description": "Economic Trends in 2010 in Cumberland County",
+            "document": "economic-trends/Economic Trends for 2010 in Cumberland County.pdf",
+            "title": "Economic Trends",
+            "updated_date": "2011-01-01"
+        },
+        "model": "keithvaluation.economictrend"
+    },
+    {
+        "fields": {
+            "description": "National organization of real estate appraisers.  It gives the MAI designation.",
+            "title": "Appraisal Institute",
+            "url": "http://www.appraisalinstitute.org/"
+        },
+        "model": "keithvaluation.externallink"
+    },
+    {
+        "fields": {
+            "description": "CPI statistics generally used to measure inflation. ",
+            "title": "Bureau of Labor Statistics CPI Information",
+            "url": "http://www.bls.gov/news.release/cpi.toc.htm"
+        },
+        "model": "keithvaluation.externallink"
+    },
+    {
+        "fields": {
+            "description": "Organization responsible for licencing of all real estate appraisers in North Carolina. Their website has information on how to become an appraiser.",
+            "title": "NC Appraisal Board",
+            "url": "http://www.ncappraisalboard.org/"
+        },
+        "model": "keithvaluation.externallink"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/KeithNewsletterV7I1.pdf",
+            "title": "Volume 7 Issue 1",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/KeithNewsletterV6I2.pdf",
+            "title": "Volume 6 Issue 2",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/KeithNewsletterV6I1.pdf",
+            "title": "Volume 6 Issue 1",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/KeithNewsletterV5I2.pdf",
+            "title": "Volume 5 Issue 2",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/2004AnnualReport.pdf",
+            "title": "2004 Annual Report",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/2003AnnualReport.pdf",
+            "title": "2003 Annual Report",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "",
+            "document": "newsletters/2002AnnualReport.pdf",
+            "title": "2002 Annual Report",
+            "updated_date": "2009-06-24"
+        },
+        "model": "keithvaluation.newsletter"
+    },
+    {
+        "fields": {
+            "description": "This report studies the various lease rates and terms for hunting property in southeastern North Carolina",
+            "document": "re-research/hunting_rates.pdf",
+            "subtype": "Agricultural Properties",
+            "title": "Hunting Lease Rates",
+            "updated_date": "2009-08-17"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Office and Rental Index is an analysis of Rental Rates of Office and Retail space in Fayetteville. (Updated through to 2011)",
+            "document": "re-research/2011OfficeRetailRates.pdf",
+            "subtype": "Commercial",
+            "title": "Office & Retail Rental Index ",
+            "updated_date": "2012-03-15"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This study illustrates the methodology of quantifying the impact of a cell towner on surrounding properties.",
+            "document": "re-research/cell_tower_study.pdf",
+            "subtype": "Damage Studies",
+            "title": "Cell Tower Damage Study",
+            "updated_date": "2009-07-22"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This study illustrates how we determine the impact of a quarry on the surrounding properties. ",
+            "document": "re-research/quarry_study.pdf",
+            "subtype": "Damage Studies",
+            "title": "Quarry Impact Study",
+            "updated_date": "2009-07-22"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The External Obsolescence Index measures the loss in value of dwellings larger than is typical for the neighborhood.",
+            "document": "re-research/ExternalObsolescence.pdf",
+            "subtype": "Residential",
+            "title": "External Obsolescence Index",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Fayetteville Apartment index is the average rent on 2 Bedroom apartments less than 20 years old located in Fayetteville.",
+            "document": "re-research/2015-apartment-index.pdf",
+            "subtype": "Apartment",
+            "title": "Fayetteville Apartment Index (Updated 2015)",
+            "updated_date": "2015-01-29"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Residential Index is a study to determine the average square foot price for dwellings ranging in value from $100,000 to $300,000 as of 2014.",
+            "document": "re-research/2014-residential-index.pdf",
+            "subtype": "Residential",
+            "title": "Fayetteville Residential Index",
+            "updated_date": "2015-02-10"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study of the Cumberland County manufactured housing market versus the conventional home (stick built) market.",
+            "document": "re-research/mfghome.pdf",
+            "subtype": "Residential",
+            "title": "Manufactured Housing in Cumberland County",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study relating the size of an residential tract to the price per acre.",
+            "document": "re-research/Price size Relationship for Residential Tracts.pdf",
+            "subtype": "Land Development",
+            "title": "Price Size Relationship for Residential Tracts",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study of costs related to subdivision development in the Cumberland County area.",
+            "document": "re-research/SD Dev Costs in the Area.pdf",
+            "subtype": "Land Development",
+            "title": "Subdivision Development Costs in the Area",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study of the correlation between the traffic count and rental rates for convenience store sites.",
+            "document": "re-research/Traffic Count.pdf",
+            "subtype": "Commercial",
+            "title": "Correlation Between Rental Rate & Traffic Count",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Fayetteville CBD Index tracks real estate activity in the Central Business District of Fayetteville.",
+            "document": "re-research/FayettevilleCBDValues2011.pdf",
+            "subtype": "Commercial",
+            "title": "Fayetteville CBD Index",
+            "updated_date": "2012-03-15"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study of loss in value due to inadequate parking.",
+            "document": "re-research/Loss in Value due to Inadequate Parking.pdf",
+            "subtype": "Damage Studies",
+            "title": "Loss in Value due to Inadequate Parking",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Industrial Rent per SF shows the trend in Absolute Net Rental Rates for Industrial Space in NC from 1995 to 2002.",
+            "document": "re-research/IndustRent.pdf",
+            "subtype": "Industrial",
+            "title": "Industrial Rent per SF",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "Market Data and Occupancy Statistics for Distribution and Light Industrial Properties in the Fayetteville, SMA.",
+            "document": "re-research/Industrial vacancy rate.pdf",
+            "subtype": "Industrial",
+            "title": "Industrial Vacancy Rate for Fayetteville SMA, NC",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Industrial Index is a study determining the average price paid for existing industrial buildings in North Carolina from 1970 to 2013.",
+            "document": "re-research/2014IndustrialChart.pdf",
+            "subtype": "Industrial",
+            "title": "Keith Industrial Index (updated 2014)",
+            "updated_date": "2014-08-11"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study relating the size of an industrial tract to the price per acre for various sized markets.",
+            "document": "re-research/Price Size Relationship.pdf",
+            "subtype": "Industrial",
+            "title": "Price Size Relationship",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "A study relating the influence of hydric soils on land values.",
+            "document": "re-research/HYDRIC.pdf",
+            "subtype": "Land Development",
+            "title": "Hydric Soil Study",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The Cropland and Woodland Index is an average of extracted cropland and woodland prices of farm and woodland sales from 27 Southeastern North Carolina Counties.",
+            "document": "re-research/2011CropWoodlandIndex.pdf",
+            "subtype": "Agricultural Properties",
+            "title": "Keith Cropland & Woodland Index (2011)",
+            "updated_date": "2012-05-31"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "An Analysis of Leasing Commissions paid by Landlords.",
+            "document": "re-research/LeasingCommissions.pdf",
+            "subtype": "Commercial",
+            "title": "Leasing Commissions",
+            "updated_date": "2009-06-23"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart shows the relationship between the age of an apartment and the expenses per square foot",
+            "document": "re-research/aptAgeVsExpenses.pdf",
+            "subtype": "Apartment",
+            "title": "Apartment Expenses Vs. Age",
+            "updated_date": "2009-08-20"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart shows the relationship between the Net Operating Income/SF and the Sales Price/SF.",
+            "document": "re-research/NOIvsSPShoppingCenter.pdf",
+            "subtype": "Commercial",
+            "title": "Sales Price Vs. NOI for Shopping Centers",
+            "updated_date": "2009-08-20"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart is employed to determine the number of lineal feet of street for a lot of a specific size",
+            "document": "re-research/Lineal Feet of Street per Lot.pdf",
+            "subtype": "Land Development",
+            "title": "Lineal Feet of Street per Lot",
+            "updated_date": "2009-09-18"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart is employed by our firm to estimate the number of various size lots which can be developed from an acre of land",
+            "document": "re-research/Number of Lots per Acre vs Lot Size.pdf",
+            "subtype": "Land Development",
+            "title": "Number of Lots per Acre vs Lot Size",
+            "updated_date": "2009-09-18"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart shows the consistency of the relationship between the Sales Price of an Apartment complex and the Effective Gross Income Multiplier (EGIM)",
+            "document": "re-research/GIM vs SP.pdf",
+            "subtype": "Apartment",
+            "title": "Sales Price vs EGIM",
+            "updated_date": "2014-08-11"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart shows the consistency of the linear relationship between the Sales Price and an Apartment Complex and the Net Operating Income (NOI)",
+            "document": "re-research/Sales Price vs NOI Per Unit Basis.pdf",
+            "subtype": "Apartment",
+            "title": "Sales Price vs NOI Per Unit Basis",
+            "updated_date": "2009-09-18"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This Cell Tower study is an analysis of rental rates and terms for cell tower leases in Cumberland County",
+            "document": "re-research/CellTowerRentStudy2.pdf",
+            "subtype": "Commercial",
+            "title": "Cell Phone Tower Market Rent Study",
+            "updated_date": "2011-04-12"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart indicates the relationship of the lot value to the total purchase price of the house and lot.",
+            "document": "re-research/ResidentialSiteValue.pdf",
+            "subtype": "Residential",
+            "title": "Residential Site Value",
+            "updated_date": "2011-04-01"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "Showing how age of complex affects overall group and the effective gross income multiplier.",
+            "document": "re-research/Apt Sta Analysis.pdf",
+            "subtype": "Apartment",
+            "title": "Statistical Analysis of Apartment Sales",
+            "updated_date": "2011-03-28"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This article examines the relationship between lot values and total value of a property.",
+            "document": "re-research/Determination of Single Family Residential Site Value.pdf",
+            "subtype": "Residential",
+            "title": "Determination of Single Family Residential Site Value",
+            "updated_date": "2012-01-17"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "The water frontage of lots at White Lake, NC is generally valued on the basis of dollars per front foot. This article shows how the rate per front foot changes as the amount of frontage changes for lots with water frontages between 32 feet and 72 ft.",
+            "document": "re-research/White_Lake_Water_Frontage.pdf",
+            "subtype": "Residential",
+            "title": "White Lake Water Frontage",
+            "updated_date": "2012-02-15"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This chart compares the size of commercial lots to their price per square foot.",
+            "document": "re-research/CommercialSiteUtilityVsValue.pdf",
+            "subtype": "Commercial",
+            "title": "Commercial Site Utility vs. Value",
+            "updated_date": "2012-08-24"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "This study quantifies how the length of a lease affects its cost.",
+            "document": "re-research/Lease Rates Are a Function of Term of Lease.pdf",
+            "subtype": "Commercial",
+            "title": "Lease Rates are a Function of the Length of Lease",
+            "updated_date": "2014-02-25"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "An analysis of absorption rates in the housing market of Cumberland County leading up to the 2009 recession",
+            "document": "re-research/before-2009-recession.pdf",
+            "subtype": "Residential",
+            "title": "What Preceeded the 2009 Recession",
+            "updated_date": "2014-11-14"
+        },
+        "model": "keithvaluation.reresearch"
+    },
+    {
+        "fields": {
+            "description": "Tom has over 40 years experience in Real Estate Appraisals and Business Valuations.  He has supervised the development of over 15,000 appraisals of all types amounting to over $3 Billion Dollars in Value.  He holds the MAI, CBA, and ASA-BV designations.",
+            "email": "tjk@keithvaluation.com",
+            "image": "headshots/tom-keith-headshot.jpg",
+            "name": "Tom J. Keith, MAI, SRA, ASA, CBA",
+            "order": 2,
+            "resume": "resumes/tjkres-2014.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "Thomas, with over 15 years experience as Controller and Chief Financial Officer of Closely Held Corporations, has been with the firm since 2000.",
+            "email": "twb@keithvaluation.com",
+            "image": "headshots/thomas-bell-headshot.jpg",
+            "name": "Thomas W. Bell",
+            "order": 3,
+            "resume": "resumes/twbres.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "Jim, who joined the firm in 2004, is a North Carolina State Certified General Appraiser.  Jim has experience with Condemnation, Golf Course, and Farm Appraisals",
+            "email": "jcb@keithvaluation.com",
+            "image": "headshots/jbullard.jpg",
+            "name": "James C. Bullard",
+            "order": 4,
+            "resume": "resumes/jcbres.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "Mr. Carlyle, a North Carolina Certified General Appraiser,  has over 40 years experience in the appraisal business.",
+            "email": "rcc@keithvaluation.com",
+            "image": "headshots/ccarlyle.jpg",
+            "name": "R.C. Carlyle",
+            "order": 5,
+            "resume": "resumes/rccres.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "Brandon, a North Carolina Certified General Appraiser, joined Tom Keith & Associates in November 2007.  Brandon has experience in Industrial sites, Development Land, and Cell Towers.",
+            "email": "btw@keithvaluation.com",
+            "image": "headshots/bwills.jpg",
+            "name": "Brandon Wills",
+            "order": 6,
+            "resume": "resumes/btwres.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "Paula has over 9 years experience in Residential Real Estate Appraisals. She operates as a Franchisee of the firm and performs most of the residential assignments.",
+            "email": "residential@keithvaluation.com",
+            "image": "headshots/pmitchell.jpg",
+            "name": "Paula Mitchell",
+            "order": 21,
+            "resume": "resumes/plmres.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "",
+            "email": "jmk@keithvaluation.com",
+            "image": "headshots/jamie-keith-headshot.jpg",
+            "name": "Jamie Keith",
+            "order": 11,
+            "resume": ""
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "John joined the firm in 2012 with experience as a Quality Control Supervisor with a large Paving Contractor",
+            "email": "jrs@keithvaluation.com",
+            "image": "headshots/jschall.JPG",
+            "name": "John Schall",
+            "order": 8,
+            "resume": "resumes/jrsres.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "",
+            "email": "atk@keithvaluation.com",
+            "image": "headshots/alex-keith-headshot.jpg",
+            "name": "Alex Keith",
+            "order": 12,
+            "resume": ""
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "Matt, a 2011 graduate of Campbell University, joined the firm as an Appraiser Trainee in 2013.  ",
+            "email": "mka@keithvaluation.com",
+            "image": "headshots/madams.jpg",
+            "name": "Matthew Adams",
+            "order": 10,
+            "resume": "resumes/mkares.pdf"
+        },
+        "model": "keithvaluation.staff"
+    },
+    {
+        "fields": {
+            "description": "A Discussion of the various values of Real Estate and Business Valuation Reports",
+            "document": "whitepapers/What kind of Value do you order_REVISED2.pdf",
+            "title": "What Kind of Value do you Order?",
+            "updated_date": "2011-02-10"
+        },
+        "model": "keithvaluation.whitepaper"
+    },
+    {
+        "fields": {
+            "description": "A Discussion of the Premises of Value between Real Estate and Business Valuation Reports",
+            "document": "whitepapers/Value Premises for BV and RE.pdf",
+            "title": "Value Premises for Business Valuation and Real Estate",
+            "updated_date": "2011-02-10"
+        },
+        "model": "keithvaluation.whitepaper"
+    },
+    {
+        "fields": {
+            "description": "This article describes various aspects of financial statements and how they relate to business valuation.",
+            "document": "whitepapers/ReconstructedFinancialStatements.pdf",
+            "title": "Reconstructed Financial Statements",
+            "updated_date": "2012-09-10"
+        },
+        "model": "keithvaluation.whitepaper"
+    },
+    {
+        "fields": {
+            "description": "This whitepaper examines the valuation of cell tower leases especially towards the end of term.",
+            "document": "whitepapers/Do cancellation clauses lower value.pdf",
+            "title": "Do Cell Tower Lease Terms Affect Value?",
+            "updated_date": "2013-12-14"
+        },
+        "model": "keithvaluation.whitepaper"
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2014-11-01",
+            "title": "NCDOT Condemnation Settlement",
+            "content": "Real Estate Appraiser Associate Jim Bullard provided an appraisal on behalf of the property owner, White Investments Company, in June of 2014 quantifying the damages due to NCDOT taking in a road widening project on NC Highway 87 in Roseboro (Sampson County, NC 12 CVS 1267). The NCDOT offer was for $201,100.  Mr. Bullard provided an appraisal that supported damages of just under $420,000 allowing the owner's attorney, Garris Neil Yarborough, to secure approximately $355,000 in just compensation for the owner in an out of court settlement."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2014-02-01",
+            "title": "NCDOT Condemnation Settlement",
+            "content": "In a highway condemnation taking case on NC Highway 87 near Stedman, NC, Department of Transportation vs. Richard R. Allen Jr, Court File No.: 12-CVS-4455 Cumberland County where the DOT offered and deposited $69,000(R) for the taking and damages, appraiser Associate, Jim Bullard, appraised the taking and damages at just over $378,000 which assisted the property owner’s attorney, Garris Neil Yarborough of Yarborough, Winters, Neville, PA in Fayetteville, NC to reach an out of court settlement of $315,000 (4.56 times the NC DOT offer). The case was complicated by zoning, obsolescence and access issues which Mr. Bullard was able to quantify the relevant damages of each factor that affected value due to the DOT taking."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-12-01",
+            "title": "Cell Tower and Cell Site Valuation",
+            "content": "Associate Brandon Wills and Tom Keith were selected as webinar presenters by the Appraisal Institute to discuss the valuation of cell towers and cell tower sites on December 5, 2013. The 2 hour webinar ended with a Q&A session where the 375 participants could email their questions to the presenters. It was a very timely tropic with more questions asked than time to answer them. Keith provided a sample model to illustrate how the impact on surrounding properties could be quantified using GIS software and the whole universe of data. For more information, refer to our research and white paper section of our website."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-11-15",
+            "title": "Appraiser Supervisor",
+            "content": "On November 15, 2013, Jim Bullard, an 11 year associate and Brandon Wills, a 2003 UNC-Chapel Hill graduate and 6 year associate, successfully completed the appraiser supervisor’s course sponsored by the NC Appraisal Board in Raleigh. Jim and Brandon will be supervising and training new appraiser trainees for the firm."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-11-01",
+            "title": "Appraisal for Largest Loan by USDA",
+            "content": "John Schall, Appraiser Associate, completed an appraisal that helped Cape Fear Valley Health System receive a $57.3 million loan from USDA to finance Hoke Hospital. It was the biggest loan and guarantee ever made in the history of the USDA. The loan helps Cape Fear Valley with the best interest rates available.  The funds will be used for the construction of part of the $100 million complex on U. S. 401 at Johnson Mill Road that includes the $38 million outpatient Health Pavilion. It is expected to employ about 350 people."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-05-01",
+            "title": "Highway Condemnation in Lumberton, NC",
+            "content": "In a highway condemnation taking case on Interstate 95 at Lumberton, NC, Department of Transportation vs. David Johnson Goode, et ux, et al, Court File No.: 12-CVS-696, Robeson County where the DOT offered and deposited $54,650 for the taking and damages.  Appraisal Associate, Jim Bullard, appraised the taking and damages just over $600,000 which assisted the property owner’s attorney, Timothy W. Wilson of Poyner Spruill in Rocky Mount, reach an out of court settlement of $600,000 (11 times the NC DOT offer). The case was complicated by zoning, wetland, flood plain and access issues which Mr. Bullard was able to convincingly quantify the relevant damages of each point due to the DOT taking."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-05-01",
+            "title": "Appraiser vs. NCDOT",
+            "content": "Real Estate Appraiser associate, Jim Bullard, provided an appraisal on behalf of property owner, John O. Bunce, et al, in April 2013 quantifying the damages due to NCDOT taking in a road widening project on Hope Mills Road (Cumberland County, NC 11CVS10033, 12CVS8541-12CVS8542).  The NCDOT offer was for $59,000.  Mr. Bullard provided an appraisal allowing owner's attorney, Garris Neil Yarborough, to secure approximately $164,000 in just compensation for the owner.\n\nMr. Bullard also testified on behalf of property owner, Magnolia Lane, LLC, et al, in April 2013 trial involving the taking and damaging of the owner's property in a NCDOT taking and road widening project on Magnolia Lane (Cumberland County, NC 11CVS030).  The NCDOT appraiser testified to a value of $91,000.  Mr. Bullard's testimony assisted the owner's attorney, Garris Neil Yarborough, to secure approximately $164,000 in just compensation for the owner."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-05-01",
+            "title": "Business Valuation Conference, Atlanta, Ga.",
+            "content": "Thomas Bell and Tom Keith attended a business valuation educational conference sponsored by the Financial Consulting Group (FCG) in Atlanta, Ga., where a host of first day speakers included author and lecturer, Jim Hitchner, Jim Alerding, Josh Angell, Charles Phillips, David Hoffman – all business valuation practitioners in the Atlanta area spoke on \"Deep Thoughts on DLOM,” and \"Practice Guidelines for Forensic Engagements.”\n\nThe second day included lectures by professor and author Aswath Damadaran, Ph.D., holds the Kerschner Family Chair in Finance Education and is Professor of Finance at the Stern School of Business at New York University who spoke on \"Living with Noise: Investing in the Face of Uncertainty” and \"Cost of Capital.” He has valued companies such as Amazon, Apple, and Facebook. He has published several books on Equity Valuation. Business Week profiled him as one of the top twelve business school professor in the US in 1994.\n\nMark L. Zyla lectured on \"Fair Value Measurements: Where Are We Now.”  Jim Alerding spoke on \"Valuation in the Divorce Setting.”"
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-04-01",
+            "title": "The Firm Welcomes John Schall",
+            "content": "Almost a year ago and after completing 8 appraisal courses and the real estate brokers course over the previous 6 months, Tom Keith & Associates, Inc., hired me as a trainee so I could learn how to appraise real estate and meet the requirements for a General Real Estate Appraisal Certification which takes 2 and one half years of experience. I am 40 years old and was ready to settle down to a career I could enjoy the rest of my life.\n\nA former associate of the firm, Diehl Jones, had recommended me to this firm because they had an excellent training program and had trained over 60 appraisers in this market. I had checked with other firms but they were not willing to take on an associate who would eventually become their competition.\n\nSince being hired, I have appraised numerous properties including office park developments, medical clinics, fast food and family style restaurants, churches, central business district office and retail, office condos, industrial properties, farm and woodland and hospitals. At first there were a lot of questions but now I am getting more familiar with the appraisal process and now I am beginning to \"see the light.\" This has been one of the most rewarding careers I have every pursued and I hope to continue this until I retire.\n\nThe firm has excellent data bases and the assignments become more interesting and challenging each day. I learn something new each day and with each assignment."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-04-01",
+            "title": "Study on the Impact of Median on Business",
+            "content": "Recently Jim Bullard completed a study on the effects of a median that was placed along Ramsey Street in 2011.  After establishing the traffic history for Ramsey Street and discussing the reasons for the median with the NC Department of Transportation, Bullard compiled an exhaustive study of businesses along Ramsey Street and documented the results of this study in order to demonstrate the effects of the median on various types of businesses.\n\nThe owners and managers of over forty businesses were asked \"How has the median affected your business”?  Next, the owners were asked to discuss the effects if any on how much their businesses had changed.  The information gleaned was incorporated into a study which graphically illustrates how the major types of businesses were affected by the median."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-03-01",
+            "title": "The Firm Says Fairwell to David W. Duke",
+            "content": "Nearly 7 years ago I made a career change from teaching music at Methodist University with a Doctorate in Music to pursuing a career in real estate appraising. I knew nothing about appraising but an appraisal firm owners’ son took piano lessons from my wife who taught at Snyder Memorial Baptist Church. I interviewed with the owner and he agreed to hire me provided I took the required courses for a trainee license and a real estate broker’s license. After completing the required three years of appraisal experience with Tom J. Keith & Associates, Inc. I took the required appraisal licensing test and obtained my General Real Estate Appraisers License.\n\nTom Keith has trained over 60 appraisers during his 42 years experience and he knows how to train appraisers by providing the individual with just the right amount of assistance with hands-on on-the-job training and education and at the same time instilling in us the pride of authorship and the satisfaction of completing the job on our own for the client. He conducted weekly staff meetings so all appraisers could share their experiences to help the beginning appraiser.  He has about 20,000 appraisal reports, models, transaction data, and a wealth of knowledge about how to appraise any type of property a client may request. I never experienced a situation where he did not know how to appraise a property.  He was always available to help me with any question I might have.  He allowed me to continue to pursue musical interest at night. I even helped my children with home schooling.\n\nMy family are moving to Pennsylvania and my experience with Mr. Keith has enabled me to launch an appraisal career with a health care appraisal firm. I owe my success in this business because I had the opportunity to work for a firm that strives on doing things \"the right way” and doing them like you would like someone to appraise your property."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-03-01",
+            "title": "Geographic Information Systems (GIS)",
+            "content": "For the past five years Yolanda Lilly, GIS technician,  has helped Tom J. Keith and Associates leverage the capacity of the GIS program to relate different types of data such as socioeconomic, demographic and land use data to strengthen studies, consultations and reports with professional illustrations of geographically based empirical data, providing a more complete overview of a client’s specific property(s) within the whole universe of data for that market.  The ArcGIS program and 36” plotter allows her to graphically plot data on maps and charts for easier visual presentation and interpretation. The program can create maps, mine data from the whole universe of data in a market, and maintain data to assist the appraisers in locating their subject and comparables for their appraisal or consulting  reports. When a bid request for an appraisal report is received and accepted, the first thing to do is locate the subject with the aid of the GIS program. She creates different maps such as aerial, topography, elevation, flood zone, floodway, soil, wetlands and location maps to provide the client and appraisers with a more complete understanding of the subject property(s).  Once the subject is identified, the GIS program is combined with geographically referenced data that allows her to research for recent improved and/or land sales.\n\nBy executing search techniques within the GIS program,  Mrs. Lilly performs research in selected markets for properties with certain characteristics and exports that data to an Excel spreadsheet or generates a map with the data plotted on it. The geographic data comes from a variety of government and corporate sources and daily inquiries are made to stay current by updating and maintaining the program and data files to ensure the most accurate performance of the GIS program and database.   The GIS program has the capacity to relate different types of data such as socioeconomic, demographic, and land use that allows contribution to those different studies and consultations which allows the appraisers to visualize the relationship between physical, social, and economic characteristics and trends."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-02-01",
+            "title": "Going Concern Value Review",
+            "content": "At the request of the American Society of Appraisers (ASA) in February 2013, Tom J. Keith, MAI, ASA, CBA, reviewed the course material for a course to be sponsored by the ASA. We were chosen because of our knowledge and experience in valuing both real estate and business entities. The three and one-half day course introduces the participant to the concept of appraising real estate properties with a business component, such as car washes and motels. It is designed to provide the experienced appraiser the knowledge and understanding needed to perform going concern valuations by helping the real estate appraiser identify the non-real estate and intangible assets when they are entangled with the real estate.\n\nThe course is developed from the book Going Concern Valuations for Real Estate Appraisers, Lenders, Assessors, and Eminent Domain Professionals written by L. Deane Wilson, MA, ASA and Robin G. Wilson, MAI."
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-02-07",
+            "title": "Cell Tower Leases",
+            "content": "On February 7, 2013, Tom Keith & Associates, Inc. staff watched a webinar about cell tower leases and legal trends associated with section 6409(9) of the Middle Class Tax Relief Act and Section 704 of Telecommunications Act of 1996 Shot clock orders. The firm has appraised a number of cell towers as well as the impact of cell towers on adjoining properties. This study is <a href=\"http://www.keithvaluation.com/research/CellTowerRentStudy.pdf\">located on our website</a>"
+        }
+    },
+    {
+        "model": "keithvaluation.newsitem",
+        "fields": {
+            "date": "2013-02-01",
+            "title": "Expert Witness",
+            "content": "Real Estate Appraiser associate, Jim Bullard, testified on behalf of property owner, Bullard Furniture Company, in a February 2013 trial involving the taking and damaging of the owner’s property in a road widening project (Cumberland County, NC, 10CVS9029). The NC DOT appraiser testified to a value of $175,000. Mr. Bullard’s testimony assisted the owner’s attorney, Garris Neil Yarborough, in securing approximately $800,000 in just compensation for the owner."
+        }
+    }
+]

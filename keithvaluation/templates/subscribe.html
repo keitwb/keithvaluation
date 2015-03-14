@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="contenttitle">Subscribe to Newsletter</div>
+  <form method="post" onsubmit="return verifyForm(this)" action="sendemail.php">
+    <div class="subform">
+      <input type="hidden" name="subject" value="***New Subscription Request***" />
+      <div style="display:none">
+        <input type="checkbox" name="YES" value="ON" checked="checked" tabindex="1" />
+        Yes! Please keep me updated with the latest Valuation news.<br />
+        <br />
+      </div>
+      Email Address (required):
+      <input type="text" name="email" size="40" tabindex="2" />
+      <br />
+      <div style="font-weight:bold; margin:1em 0">Additional Information (Optional)</div>
+      Name:
+      <input type="text" name="realname" size="40" tabindex="5" />
+      <br />
+      Company (if applicable):
+      <input type="text" name="Company" size="40" tabindex="6" />
+      <br />
+      <div style="font-weight:bold; margin:1em 0">Mailing Address</div>
+      Street:
+      <input type="text" name="Street" size="40" tabindex="7" />
+      <br />
+      City:
+      <input type="text" name="City" size="40" tabindex="7" />
+      <br />
+      State:
+      <input type="text" name="State" size="10" tabindex="8" />
+      <br />
+      Zip Code:
+      <input type="text" name="ZipCode" size="20" tabindex="8" />
+      <br />
+      Telephone:
+      <input type="text" name="Telephone" size="20" tabindex="9" />
+      <br />
+      <br />
+      Comments:
+      <p>
+        <textarea rows="7" name="Comment" cols="65" tabindex="10"></textarea>
+      </p>
+      <p>
+        <input type="submit" value="Submit" name="Submit" />
+      </p>
+      <p>
+        <input type="reset" value="Reset" name="Reset" />
+      </p>
+      </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+div.staffprofile {
+  clear:left;
+}
+
+div.staffprofile a { 
+  text-decoration:none;
+}
+
+div.staffimage {
+  float:left;
+  clear:left;
+  margin-right: 1em;
+  margin-bottom: 1.5em;
+}
+
+div.staffname {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 115%;
+  text-align: left;
+}
+
+div.staffdesc {
+  font-family: Arial;
+  font-size: 100%;
+  text-align: left;
+  padding: 0.5em 0 0.5em 0;
+}
+
+div.staffres {
+  font-family: Arial;
+  font-size: 90%;
+  text-align: left;
+}

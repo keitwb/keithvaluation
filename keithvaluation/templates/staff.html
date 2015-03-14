@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extracss %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/staff.css" %}" />
+{% endblock %}
+
+{% block content %}
+   <div class="contenttitle">
+     Staff Profiles
+   </div>
+
+  {% for s in staff_members %}
+
+  <div class="staffprofile">
+    <div class="staffimage">
+      <a href="mailto:{{ s.email }}"><img src="{{ s.image.url }}" width="60" height="90" alt="{{ s.name }}'s Photo" style="border:2px solid black;" /></a>
+    </div>
+    <div class="staffname">
+      <a href="mailto:{{ s.email }}">{{ s.name }}</a>
+    </div>
+    <div class="staffdesc">
+      <span>{{ s.description }}</span>
+    </div>
+    <div class="staffres">
+    {% if s.resume %}
+      <a href="{{ s.resume.url }}">See Full Resume</a>
+    {% endif %}
+      <a href="mailto:{{ s.email }}" style="padding-left:10em;">Send E-mail</a>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

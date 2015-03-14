@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block topmatter %}
+{% endblock %}
+
+{% block entries %}
+  {% for o in object_list %}
+    {% include 'list-pages/entry.html' with entry=o %}
+  {% endfor %}
+{% endblock %}
+
+{% endblock %}
