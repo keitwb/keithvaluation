@@ -20,12 +20,10 @@ SITE_ID = 1
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!916gumezvl!m@g)r9jd%(6o#2f(bnk6v$&olh&x_+6q72mrj5'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+SERVER_HOSTNAME = os.environ.get('SITE_HOSTNAME')
+ALLOWED_HOSTS = ['www.%s' % SERVER_HOSTNAME, SERVER_HOSTNAME]
 
 
 # Application definition
@@ -34,6 +32,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
+    'django_extensions',
     'keithvaluation',
 )
 
@@ -58,7 +57,14 @@ WSGI_APPLICATION = 'keithvaluation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/data/keithvaluation.sqlite3',
+        'NAME': '/data/keithvaluation.db',
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+        'LOCATION': 'memcached:11211',
     }
 }
 
@@ -71,19 +77,47 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-MEDIA_ROOT = '/data/media/'
-STATIC_ROOT = '/data/static/'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+MEDIA_ROOT = '/media/'
+STATIC_ROOT = '/build/dist/'
 STATIC_URL = os.environ.get('DJANGO_STATIC_URL', '/static/')
-MEDIA_URL = os.environ.get('DJANGO_MEDIA_URL', '/media/')
+MEDIA_URL = STATIC_URL + 'media/'
 
 GA_ACCOUNT = os.environ.get('DJANGO_GA_ACCOUNT', None)
 
-if os.environ.get('DJANGO_EXTENSIONS', False) in ['y', '1', 'true', 't']:
-    INSTALLED_APPS += (
-        'django_extensions',
-    )
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    }
+}
 
+if os.environ.get('DJANGO_ADMIN') in ['y', 'yes', 't', 'true', '1']:
+    from .admin import *

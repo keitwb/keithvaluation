@@ -15,8 +15,8 @@ table.twrap {
 }
 
 div.wrap {
- margin:auto; 
- position:relative; 
+ margin:auto;
+ position:relative;
  width:900px;
 }
 
@@ -72,17 +72,16 @@ div.header {
  margin: 0;
  clear: none;
  background-color: #003399;
- /*background: #e8e8e8 url('/images/logobanner.jpg') no-repeat fixed center;*/
 }
 
 div.contactus {
- float: right; 
- height:2em; 
- position:relative; 
- top:115px; 
- margin-top:-1em;      
- margin-right:0.5em; 
- font-weight:bold; 
+ float: right;
+ height:2em;
+ position:relative;
+ top:115px;
+ margin-top:-1em;
+ margin-right:0.5em;
+ font-weight:bold;
  color:white;
 }
 
@@ -94,7 +93,7 @@ div.contactus {
 td.contents {
  /*margin-left: 12em;*/
  padding: 2em;
- background-color: #ffffff; 
+ background-color: #ffffff;
  text-align: justify;
  vertical-align: top;
  /*width: 50em;*/

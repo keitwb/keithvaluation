@@ -4,6 +4,10 @@ from django.views.generic.base import TemplateView
 
 from keithvaluation import views
 
+from .decorators import cache_page
+from .sitemap import KVSitemap
+
+cacher = cache_page(60*60)
 
 pages = [
     { "template": "aboutus.html", "name": "aboutus", "title": "About Us", },
@@ -19,24 +23,23 @@ pages = [
 
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^$', cacher(TemplateView.as_view(template_name='index.html')), name='home'),
+    url(r'^news/$', cacher(views.CompanyNewsView.as_view()), name='news'),
+    url(r'^staff/$', cacher(views.StaffView.as_view()), name='staff'),
+    url(r'^links/$', cacher(views.ExternalLinksView.as_view()), name='links'),
+    url(r'^re-research/$', cacher(views.RealEstateResearchView.as_view()), name='re-research'),
+    url(r'^bv-research/$', cacher(views.BusinessValuationResearchView.as_view()), name='bv-research'),
+    url(r'^court-cases/$', cacher(views.CourtCasesView.as_view()), name='court-cases'),
+    url(r'^economic-trends/$', cacher(views.EconomicTrendsView.as_view()), name='economic-trends'),
+    url(r'^newsletters/$', cacher(views.NewslettersView.as_view()), name='newsletters'),
+    url(r'^whitepapers/$', cacher(views.WhitePapersView.as_view()), name='whitepapers'),
 
-    #(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-        #name='django.contrib.sitemaps.views.sitemap'),
-
-    url(r'^news/$', views.CompanyNewsView.as_view(), name='news'),
-    url(r'^staff/$', views.StaffView.as_view(), name='staff'),
-    url(r'^links/$', views.ExternalLinksView.as_view(), name='links'),
-    url(r'^re-research/$', views.RealEstateResearchView.as_view(), name='re-research'),
-    url(r'^bv-research/$', views.BusinessValuationResearchView.as_view(), name='bv-research'),
-    url(r'^court-cases/$', views.CourtCasesView.as_view(), name='court-cases'),
-    url(r'^economic-trends/$', views.EconomicTrendsView.as_view(), name='economic-trends'),
-    url(r'^newsletters/$', views.NewslettersView.as_view(), name='newsletters'),
-    url(r'^whitepapers/$', views.WhitePapersView.as_view(), name='whitepapers'),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'static': KVSitemap()}},
+        name='django.contrib.sitemaps.views.sitemap'),
 )
 
 static_patterns = [ url(r"^%s/$" % (p['name'],),
-                        views.KVView.as_view(template_name=p['template'], page_title=p['title']),
+                        cacher(views.KVView.as_view(template_name=p['template'], page_title=p['title'])),
                         name=p['name'])
                     for p in pages ]
 

@@ -1,4 +1,6 @@
-from .app import *
+from .base import *
+
+ALLOWED_HOSTS.pop(0)
 
 INSTALLED_APPS += (
     'django.contrib.admin',

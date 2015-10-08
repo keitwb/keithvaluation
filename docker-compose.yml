@@ -1,28 +1,12 @@
 app: &app
   build: .
-  ports:
-   - "18000:8000"
-  expose:
-    - "8000"
-  volumes:
-   - ".:/app"
-  volumes_from:
-   - dbdata
+  dockerfile: docker/app/Dockerfile
+admin:
+  <<: *app
   environment:
-    DJANGO_EXTENSIONS: 'y'
-dbdata:
-  build: .
-  volumes:
-   - /data
+    DJANGO_ADMIN: 'y'
+memcached:
+  image: memcached:1.4.24
+  command: memcached -m 128
 nginx:
   build: docker/nginx
-  environment:
-    SERVER_HOSTNAME: 'kv.dev'
-    ADMIN_HOSTNAME: 'kv-admin.dev'
-  links:
-    - app
-  volumes_from:
-    - dbdata
-  ports:
-   - "28080:80"
-   - "28443:443"

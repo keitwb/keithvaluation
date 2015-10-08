@@ -1,0 +1,8 @@
+---
+- name: Upgrade all packages
+  apt: upgrade=safe
+- include: docker.yml
+- include: repo.yml
+- include: containers.yml
+  
+  

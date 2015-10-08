@@ -3,3 +3,4 @@ keithvaluation/settings/local.py
 
 *.pyc
 tmp/
+vault.pem

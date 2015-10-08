@@ -1,4 +1,3 @@
-
 from django.views.generic.list import ListView
 
 from keithvaluation.models import Staff

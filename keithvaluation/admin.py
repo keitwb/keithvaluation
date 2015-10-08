@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.admin.widgets import AdminFileWidget
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.sites.models import Site
 from django.db import models
 from django.utils.safestring import mark_safe
 
@@ -72,3 +73,4 @@ kv_admin_site.register(kv_models.ExternalLink, ExternalLinkAdmin)
 
 
 kv_admin_site.register(User, UserAdmin)
+kv_admin_site.register(Site)

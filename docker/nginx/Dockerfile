@@ -9,8 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q && \
     apt-get clean
 
 RUN echo 'daemon off;' >> /etc/nginx/nginx.conf
-
-CMD /usr/sbin/nginx
+VOLUME ["/logs/nginx"]
 
 COPY entrypoint /entrypoint
 COPY keithvaluation.conf /tmp/site-template.conf

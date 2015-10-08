@@ -1,12 +1,32 @@
 from django.contrib.sitemaps import Sitemap
-from keithvaluation.models import Entry
+from django.core.urlresolvers import reverse
 
-class StaticViewSitemap(Sitemap):
+class KVSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'weekly'
+    changefreq = 'monthly'
 
     def items(self):
-        return ['main', 'about', 'license']
+        return [
+            'home',
+            'news',
+            'staff',
+            'links',
+            're-research',
+            'bv-research',
+            'court-cases',
+            'economic-trends',
+            'newsletters',
+            'whitepapers',
+            'aboutus',
+            'become-appraiser',
+            'bv-services',
+            'contact',
+            'employment',
+            're-services',
+            'salary',
+            'why-bv',
+            'resmenu',
+        ]
 
     def location(self, item):
         return reverse(item)
