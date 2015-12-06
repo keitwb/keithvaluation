@@ -1,0 +1,24 @@
+---
+- stat: path=/tmp/kv-db-import.sql
+  register: db_import_file
+
+- name: Import database file if present
+  command: docker cp /tmp/kv-db-import.sql kv_app_1:/data/keithvaluation.db
+  when: db_import_file.stat.exists
+
+- name: Delete database import file
+  file: path=/tmp/kv-db-import.sql state=absent
+
+
+- stat: path=/tmp/kv-media-import
+  register: media_import_dir
+
+- name: Copy media files into media volume
+  command: docker cp /tmp/kv-media-import/. kv_app_1:/media/
+  when: media_import_dir.stat.exists
+
+- file: path=/tmp/kv-media-import state=absent
+
+- name: Restart containers after data update
+  command: dc-kv up -d --force-recreate
+  when: media_import_dir.stat.exists or db_import_file.stat.exists

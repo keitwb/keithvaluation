@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'keithvaluation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/data/keithvaluation.db',
+        'NAME': '/data/sqlite/keithvaluation.db',
     }
 }
 

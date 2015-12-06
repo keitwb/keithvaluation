@@ -3,4 +3,4 @@ keithvaluation/settings/local.py
 
 *.pyc
 tmp/
-vault.pem
+ansible/vault.pem

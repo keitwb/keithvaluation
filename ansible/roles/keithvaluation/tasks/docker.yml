@@ -1,8 +1,0 @@
----
- - name: Download Docker 1.8.2 deb package
-   get_url: url=https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.2-0~trusty_amd64.deb
-            dest=/opt/docker.deb
- - name: Install docker
-   apt: deb=/opt/docker.deb
- - name: Create docker-compose helper script
-   template: src=dc.j2 dest=/usr/bin/dc owner=root group=root mode=0755

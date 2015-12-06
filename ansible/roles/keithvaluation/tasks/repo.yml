@@ -1,8 +1,9 @@
 ---
 - copy: content="{{ deploy_key }}" dest=/etc/deploy.key mode=0600 owner=root
+
 - name: Clone Repo
   git:
-    repo: ssh://git@github.com:keitwb/keithvaluation
+    repo: git@github.com:keitwb/keithvaluation.git
     dest: /srv/keithvaluation
     accept_hostkey: yes
     key_file: /etc/deploy.key

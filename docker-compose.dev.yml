@@ -1,39 +1,15 @@
 app:
-  extends:
-    file: docker-compose.yml
-    service: app
   command: "tail -f /dev/null"
   volumes:
    - ".:/app"
-  links:
-    - memcached
   environment:
     DJANGO_DEBUG: 'y'
     SITE_HOSTNAME: 'kv.dev'
 admin:
-  extends:
-    file: docker-compose.yml
-    service: admin
   command: "tail -f /dev/null"
-  volumes_from:
-    - app
-  links:
-    - memcached
   environment:
     SITE_HOSTNAME: 'kv-admin.dev'
-memcached:
-  extends:
-    file: docker-compose.yml
-    service: memcached
 nginx:
-  extends:
-    file: docker-compose.yml
-    service: nginx
-  links:
-    - app
-    - admin
-  volumes_from:
-    - app
   ports:
    - "28080:80"
    - "28443:443"

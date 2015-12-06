@@ -9,9 +9,9 @@ class Staff(models.Model):
 
     name = models.CharField(max_length=128)
     email = models.EmailField()
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='headshots')
-    resume = models.FileField(upload_to='resumes')
+    resume = models.FileField(upload_to='resumes', null=True, blank=True)
     order = models.PositiveIntegerField(
         help_text='Relative ordering of this staff member (lowest is higher up '
                   'on the page)')

@@ -1,7 +1,11 @@
 ---
+- name: Install base packages
+  apt: name={{item}} state=present
+  with_items:
+    - git
+    - aptitude
 - name: Upgrade all packages
   apt: upgrade=safe
-- include: docker.yml
 - include: repo.yml
 - include: containers.yml
   

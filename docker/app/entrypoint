@@ -1,13 +1,17 @@
 #!/bin/bash
 
-python /app/manage.py migrate --noinput
-python /app/manage.py collectstatic --noinput
+set -ex
 
-DOCKER_HOST_IP=$(netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}')
+mkdir -p /data/sqlite
+chown -R django.django /data/sqlite
+chown -R django.django /media
 
 if [[ -z $1 ]]
 then
-  gunicorn -c /app/docker/app/gunicorn-config.py keithvaluation.wsgi
+  python /app/manage.py migrate --noinput
+  python /app/manage.py collectstatic --noinput
+
+  exec gunicorn -c /app/docker/app/gunicorn-config.py keithvaluation.wsgi
 else
   exec $@
 fi

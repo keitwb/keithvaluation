@@ -1,5 +1,16 @@
 #!/bin/bash
 
+SCRIPTDIR=$( cd $(dirname $0) ; pwd -P )
 export COMPOSE_PROJECT_NAME=kv
 
-exec docker-compose -f docker-compose.dev.yml $@
+create_vol_if_missing() {
+  name=$1
+  docker volume ls -q | grep $name || docker volume create --name $name
+}
+create_vol_if_missing kv_media
+create_vol_if_missing kv_database
+
+exec docker-compose \
+  -f $SCRIPTDIR/docker-compose.yml \
+  -f ${DC_OVERRIDE_FILE:-$SCRIPTDIR/docker-compose.dev.yml} \
+  $@

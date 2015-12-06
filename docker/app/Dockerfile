@@ -35,7 +35,5 @@ COPY docker/app /app/docker/app/
 COPY manage.py /app/
 COPY keithvaluation /app/keithvaluation/
 WORKDIR /app
-USER django
 
-VOLUME ["/build/dist", "/logs/django", "/media", "/data"]
-
+VOLUME ["/build/dist", "/data"]

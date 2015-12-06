@@ -1,5 +1,6 @@
 #!/bin/bash
 
 export COMPOSE_PROJECT_NAME=kv
+export DC_OVERRIDE_FILE=/etc/docker-compose.kv.yml
 
-exec docker-compose -f /etc/docker-compose.kv.yml $@
+exec /srv/keithvaluation/dc $@

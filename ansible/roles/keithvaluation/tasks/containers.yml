@@ -1,26 +1,20 @@
 ---
-- template: src=dc-prod.j2 dest=/etc/docker-compose.kv.yml mode=0644
-
-- name: Write envvar file
-  template:
-    src: envvars.j2
-    dest: /etc/kv-docker.env
-    mode: 0600
-    owner: root
+- template: src=docker-compose.prod.yml.j2 dest=/etc/docker-compose.kv.yml mode=0600
+- template: src=dc.j2 dest=/usr/local/bin/dc-kv mode=0755
 
 - name: Build all docker images
-  command: dc build
+  command: dc-kv build
 
 - name: Stop existing containers
-  command: dc stop -t 10 app db
+  command: dc-kv stop -t 10
 
 - name: Remove existing containers
-  command: dc rm -fv app db
+  command: dc-kv rm -f
 
 - name: Start containers
-  command: dc up -d app db
+  command: dc-kv up -d
 
-- include: data.yml
+#- include: data.yml
 
 - command: docker images --filter dangling=true -q
   register: dangling_images

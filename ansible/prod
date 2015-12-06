@@ -1,1 +1,1 @@
-www.test.keithvaluation.com ansible_ssh_user=ubuntu
+prod ansible_ssh_host=www.test.keithvaluation.com ansible_ssh_user=admin

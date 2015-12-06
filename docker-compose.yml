@@ -1,8 +1,18 @@
-app: &app
+app:
   build: .
   dockerfile: docker/app/Dockerfile
+  volumes:
+    - "kv_database:/data"
+    - "kv_media:/media"
+  links:
+    - memcached
 admin:
-  <<: *app
+  build: .
+  dockerfile: docker/app/Dockerfile
+  volumes_from:
+    - app
+  links:
+    - memcached
   environment:
     DJANGO_ADMIN: 'y'
 memcached:
@@ -10,3 +20,8 @@ memcached:
   command: memcached -m 128
 nginx:
   build: docker/nginx
+  links:
+    - app
+    - admin
+  volumes_from:
+    - app
