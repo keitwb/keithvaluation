@@ -3,10 +3,14 @@ app:
   environment:
     SITE_HOSTNAME: {{ app_hostname }}
     DJANGO_GA_ACCOUNT: {{ google_analytics_id }}
+    DJANGO_STATIC_HOSTNAME: {{ static_hostname }}
+    DJANGO_STATIC_PATH: {{ static_path }}
 admin:
   restart: always
   environment:
     SITE_HOSTNAME: {{ admin_hostname }}
+    DJANGO_STATIC_HOSTNAME: {{ static_hostname }}
+    DJANGO_STATIC_PATH: {{ static_path }}
 memcached:
   restart: always
 nginx:

@@ -2,3 +2,5 @@
 app_hostname: kv.dev
 admin_hostname: kv-admin.dev
 google_analytics_id: 
+static_hostname: kv.dev
+static_path: '/static/'

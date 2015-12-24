@@ -81,9 +81,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-MEDIA_ROOT = '/media/'
 STATIC_ROOT = '/build/dist/'
-STATIC_URL = os.environ.get('DJANGO_STATIC_URL', '/static/')
+STATIC_URL = "//%s%s" % (
+    os.environ.get('DJANGO_STATIC_HOSTNAME', SERVER_HOSTNAME),
+    os.environ.get('DJANGO_STATIC_PATH', '/static/'))
+
+MEDIA_ROOT = '/media/'
 MEDIA_URL = STATIC_URL + 'media/'
 
 GA_ACCOUNT = os.environ.get('DJANGO_GA_ACCOUNT', None)

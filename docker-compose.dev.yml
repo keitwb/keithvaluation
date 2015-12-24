@@ -5,10 +5,14 @@ app:
   environment:
     DJANGO_DEBUG: 'y'
     SITE_HOSTNAME: 'kv.dev'
+    DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28080'
+    DJANGO_STATIC_PATH: '/static/'
 admin:
   command: "tail -f /dev/null"
   environment:
     SITE_HOSTNAME: 'kv-admin.dev'
+    DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28080'
+    DJANGO_STATIC_PATH: '/static/'
 nginx:
   ports:
    - "28080:80"
