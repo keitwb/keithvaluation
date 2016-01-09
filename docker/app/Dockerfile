@@ -11,7 +11,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q && \
       libjpeg8-dev \
       libmemcached-dev \
       zlib1g-dev \
-      build-essential && \
+      build-essential \
+      sqlite3 &&\
     apt-get clean
 
 ENTRYPOINT ["/app/docker/app/entrypoint"]

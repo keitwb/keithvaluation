@@ -4,3 +4,5 @@ admin_hostname: admin.keithvaluation.com
 google_analytics_id: UA-32385288-1
 static_hostname: d39pcpjksqjx5i.cloudfront.net
 static_path: '/'
+database_backup_bucket: keithvaluation-db-backup
+media_backup_bucket: keithvaluation-media-backup

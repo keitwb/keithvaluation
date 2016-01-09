@@ -11,7 +11,7 @@ admin:
   command: "tail -f /dev/null"
   environment:
     SITE_HOSTNAME: 'kv-admin.dev'
-    DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28080'
+    DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28443'
     DJANGO_STATIC_PATH: '/static/'
 nginx:
   ports:
