@@ -4,3 +4,4 @@ keithvaluation/settings/local.py
 *.pyc
 tmp/
 ansible/vault.pem
+ansible/playbook.retry

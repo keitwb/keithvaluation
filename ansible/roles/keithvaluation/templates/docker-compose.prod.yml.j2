@@ -18,9 +18,5 @@ nginx:
   ports:
    - "80:80"
    - "443:443"
-  environment:
-    ADMIN_SSL_CERT: |
-      {{ admin_ssl_cert|indent(6) }}
-    ADMIN_SSL_KEY: |
-      {{ admin_ssl_key|indent(6) }}
-
+  volumes:
+    - "letsencrypt:/etc/letsencrypt"

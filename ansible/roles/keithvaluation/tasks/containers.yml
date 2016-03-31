@@ -8,6 +8,8 @@
 - name: Stop existing containers
   command: dc-kv stop -t 10
 
+- include: ssl.yml domain={{ admin_hostname }}
+
 - name: Remove existing containers
   command: dc-kv rm -f
 
