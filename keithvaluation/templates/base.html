@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -49,45 +49,48 @@
    <td class="navbar">
      <div id="menutab" class="menutabs">
       <ul>
-       <li>
-         <a href="{% url 'home' %}">Home</a>
-       </li>
-       <li>
-         <a href="{% url 'aboutus' %}">About Us</a>
-       </li>
-       <li>
-         <a href="{% url 'staff' %}">Staff</a>
-       </li>
-       <li style="padding-top:1em;">
-         <a href="{% url 're-services' %}" rel="REmenu">Real Estate</a>
-       </li>
-       <li>
-         <a href="{% url 'bv-services' %}" rel="BVmenu">Business Valuation</a>
-       </li>
-       <li style="padding-top:1em;">
-         <a href="{% url 'resmenu' %}" rel="resmenu">Research</a>
-       </li>
-       <li style="padding-bottom:1em;">
-         <a href="{% url 'newsletters' %}" rel="newsmenu">Newsletters</a>
-       </li>
-       <li>
-         <a href="{% url 'contact' %}">Contact Us</a>
-       </li>
-       <li>
-         <a href="{% url 'employment' %}">Employment</a>
-       </li>
-       <li>
-         <a href="{% url 'links' %}">Links</a>
-	   </li>
+        <li>
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+          <a href="{% url 'aboutus' %}">About Us</a>
+        </li>
+        <li>
+          <a href="{% url 'staff' %}">Staff</a>
+        </li>
+        <li style="padding-top:1em;">
+          <a href="{% url 're-services' %}" rel="REmenu">Real Estate</a>
+        </li>
+        <li>
+          <a href="{% url 'bv-services' %}" rel="BVmenu">Business Valuation</a>
+        </li>
+        <li style="padding-top:1em;">
+          <a href="{% url 'resmenu' %}" rel="resmenu">Research</a>
+        </li>
+        <li style="padding-bottom:1em;">
+          <a href="{% url 'newsletters' %}" rel="newsmenu">Newsletters</a>
+        </li>
+        <li>
+          <a href="{% url 'contact' %}">Contact Us</a>
+        </li>
+        <li>
+          <a href="{% url 'employment' %}">Employment</a>
+        </li>
+        <li>
+          <a href="{% url 'links' %}">Links</a>
+	      </li>
         <li style="padding-top:1em;">
           <a href="{% url 'whitepapers' %}">White Papers</a>
-       </li>
-       <li>
-         <a href="{% url 'economic-trends' %}">Economic Trends</a>
-       </li>
-       <li>
-         <a href="{% url 'news' %}">Company News</a>
-       </li>
+        </li>
+        <li>
+          <a href="{% url 'economic-trends' %}">Economic Trends</a>
+        </li>
+        <li>
+          <a href="{% url 'news' %}">Company News</a>
+        </li>
+        <li style="padding-top:1em;">
+           <a href="{% url 'hunting-leases' %}">Hunting Leases</a>
+        </li>
       </ul>
       <div style="text-align: center; padding-top: 20px; width: 100%;">
         <div style="padding-bottom: 10px">

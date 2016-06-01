@@ -43,7 +43,7 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
-    'keithvaluation.context_processors.ga_account',
+    'keithvaluation.context_processors.google_keys',
 )
 
 ROOT_URLCONF = 'keithvaluation.urls'
@@ -90,6 +90,7 @@ MEDIA_ROOT = '/media/'
 MEDIA_URL = STATIC_URL + 'media/'
 
 GA_ACCOUNT = os.environ.get('DJANGO_GA_ACCOUNT', None)
+GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', None)
 
 LOGGING = {
     'version': 1,

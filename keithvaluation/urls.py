@@ -33,6 +33,8 @@ urlpatterns = patterns('',
     url(r'^economic-trends/$', cacher(views.EconomicTrendsView.as_view()), name='economic-trends'),
     url(r'^newsletters/$', cacher(views.NewslettersView.as_view()), name='newsletters'),
     url(r'^whitepapers/$', cacher(views.WhitePapersView.as_view()), name='whitepapers'),
+    url(r'^hunting-leases/$', cacher(views.HuntingLeases.as_view()), name='hunting-leases'),
+    url(r'^hunting-lease/(?P<pk>\d+)/$', cacher(views.HuntingLeaseDetail.as_view()), name='hunting-lease-detail'),
 
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'static': KVSitemap()}},
         name='django.contrib.sitemaps.views.sitemap'),

@@ -72,5 +72,15 @@ class ExternalLinkAdmin(admin.ModelAdmin):
 kv_admin_site.register(kv_models.ExternalLink, ExternalLinkAdmin)
 
 
+class CountyAdmin(admin.ModelAdmin):
+    list_display = ('name')
+kv_admin_site.register(kv_models.County, CountyAdmin)
+
+
+class HuntingLeaseAdmin(admin.ModelAdmin):
+    list_display = ('property_name', 'lease_start_date', 'leased_to')
+kv_admin_site.register(kv_models.HuntingLease, HuntingLeaseAdmin)
+
+
 kv_admin_site.register(User, UserAdmin)
 kv_admin_site.register(Site)
