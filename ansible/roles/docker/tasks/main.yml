@@ -1,5 +1,5 @@
 ---
- - set_fact: docker_version=1.9.0
+ - set_fact: docker_version=1.11.1
  - name: Download Docker {{docker_version}} deb package
    get_url: url=https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_{{docker_version}}-0~jessie_amd64.deb
             dest=/opt/docker-{{docker_version}}.deb
@@ -9,7 +9,9 @@
 
  - name: Install easy_install
    apt: name=python-setuptools state=present
+
  - name: Install python pip
    easy_install: name=pip state=present
+
  - name: Install docker-compose
-   pip: name=docker-compose version=1.5.0 state=present
+   pip: name=docker-compose version=1.7.0 state=present

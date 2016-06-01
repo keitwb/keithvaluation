@@ -4,7 +4,6 @@
   vars_files:
     - host_vars/{{inventory_hostname}}.yml
     - secrets/deploy_key.yml
-    - secrets/{{ inventory_hostname }}.yml
   roles:
     - docker
     - keithvaluation

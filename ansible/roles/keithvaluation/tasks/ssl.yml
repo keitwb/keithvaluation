@@ -1,16 +1,24 @@
 ---
-- name: Create docker-run dir
-  file: state=directory name=/docker-run mode=0755
-
 - name: Upload config file for {{ domain }}
   template: src=le-config.ini.j2 dest=/docker-run/letsencrypt-{{ domain }}.ini
 
+- name: Create nginx root shared dir
+  file: state=directory name=/docker-run/nginx-root mode=0755
+
 - name: Run letsencrypt for {{ domain }}
-  command: >
-    docker run
+  shell: &le_command >
+    /usr/bin/docker run
     --rm
-    -v "letsencrypt:/etc/letsencrypt"
+    -v "{{volume}}:/etc/letsencrypt"
     -v "/docker-run/letsencrypt-{{ domain }}.ini:/etc/letsencrypt/cli.ini"
-    -p 443:443
+    -v "/docker-run/nginx-root:/var/tmp/nginx"
     quay.io/letsencrypt/letsencrypt:latest
-    certonly -c /etc/letsencrypt/cli.ini
+    certonly -c /etc/letsencrypt/cli.ini >> /var/log/letsencrypt.log 2>&1 &&
+    ({{ refresh_command | default("true") }} || true)
+
+- cron:
+    name: Renew {{ domain }} cert
+    hour: 0
+    minute: 30
+    job: *le_command
+    state: present
