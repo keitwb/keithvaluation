@@ -1,22 +1,33 @@
-app:
-  command: "tail -f /dev/null"
-  volumes:
-   - ".:/app"
-  environment:
-    DJANGO_DEBUG: 'y'
-    SITE_HOSTNAME: 'kv.dev'
-    DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28080'
-    DJANGO_STATIC_PATH: '/static/'
-admin:
-  command: "tail -f /dev/null"
-  environment:
-    SITE_HOSTNAME: 'kv-admin.dev'
-    DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28443'
-    DJANGO_STATIC_PATH: '/static/'
-nginx:
-  ports:
-   - "28080:80"
-   - "28443:443"
-  volumes:
-    - "./dev-ssl:/etc/letsencrypt/live/kv-admin.dev"
+version: '2'
+services:
+  app: &app
+    command: "tail -f /dev/null"
+    volumes:
+     - ".:/app"
+    environment: &env
+      DJANGO_DEBUG: 'y'
+      SITE_HOSTNAME: &app_host 'kv.dev'
+      DJANGO_STATIC_HOSTNAME: 'www.kv.dev:28080'
+      DJANGO_STATIC_PATH: '/static/'
+  admin:
+    <<: *app
+    environment:
+      <<: *env
+      SITE_HOSTNAME: &admin_host 'kv-admin.dev'
+      DJANGO_STATIC_HOSTNAME: 'kv-admin.dev:28443'
+
+  nginx_http:
+    ports:
+     - "28080:80"
+    environment: &nginx_env
+      APP_HOSTNAME: *app_host
+      ADMIN_HOSTNAME: *admin_host
+
+  nginx_https:
+    environment:
+      <<: *nginx_env
+    ports:
+     - "28443:443"
+    volumes:
+      - "./dev-ssl:/etc/letsencrypt/live/kv-admin.dev"
 

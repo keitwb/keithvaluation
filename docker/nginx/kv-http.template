@@ -2,13 +2,9 @@ upstream app {
   server app:8000 fail_timeout=0;
 }
 
-upstream admin {
-  server admin:8000 fail_timeout=0;
-}
-
 server {
   listen 80;
-  server_name <APP_HOSTNAME>;
+  server_name ${APP_HOSTNAME};
   rewrite ^(.*)$ http://www.$host:80$1 redirect;
 }
 
@@ -16,7 +12,7 @@ proxy_cache_path /var/nginx_page_cache levels=1:2 keys_zone=kv:10m inactive=24h 
 
 server {
     listen 80;
-    server_name www.<APP_HOSTNAME>;
+    server_name www.${APP_HOSTNAME};
 
     gzip on;
     gzip_disable "msie6";
@@ -66,49 +62,14 @@ server {
 
 server {
   listen 80;
-  server_name <ADMIN_HOSTNAME>;
-  rewrite ^(.*)$ https://$host:443$1 redirect;
-}
+  server_name ${ADMIN_HOSTNAME};
 
-server {
-    listen 443 ssl;
-    server_name <ADMIN_HOSTNAME>;
+  location '/.well-known/acme-challenge' {
+      default_type "text/plain";
+      root /var/tmp/nginx;
+  }
 
-    ssl_certificate /etc/letsencrypt/live/<ADMIN_HOSTNAME>/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/<ADMIN_HOSTNAME>/privkey.pem;
-
-    gzip on;
-
-    access_log /dev/stdout;
-    error_log /dev/stderr;
-
-    client_max_body_size 10M;
-
-    location /static/media {
-        alias /media;
-        expires max;
-    }
-
-    location /static {
-        alias /build/dist;
-        expires max;
-    }
-
-    location /favicon.ico {
-        alias /data/static/images/favicon.ico;
-    }
-
-    location / {
-        proxy_pass_header Server;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Scheme $scheme;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_connect_timeout 10;
-        proxy_read_timeout 10;
-        proxy_pass http://admin;
-    }
-    # what to serve if upstream is not available or crashes
-    error_page 500 502 503 504 /media/50x.html;
+  location / {
+      rewrite ^(.*)$ https://$host:443$1 redirect;
+  }
 }

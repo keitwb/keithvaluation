@@ -1,14 +1,12 @@
-FROM ubuntu:14.04
+FROM nginx:1.10.0
 MAINTAINER Ben Keith <keitwb@gmail.com>
-EXPOSE 8000
 
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["/bin/bash", "-ec"]
+CMD ["\
+  envsubst '$APP_HOSTNAME:$ADMIN_HOSTNAME' < /etc/nginx/conf.d/kv.template > /etc/nginx/conf.d/kv.conf &&\
+  exec nginx -g 'daemon off;' \
+  "]
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -q && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx && \
-    apt-get clean
-
-RUN echo 'daemon off;' >> /etc/nginx/nginx.conf
-
-COPY entrypoint /entrypoint
-COPY keithvaluation.conf /tmp/site-template.conf
+RUN rm /etc/nginx/conf.d/default.conf
+ARG PROTOCOL
+COPY kv-${PROTOCOL}.template /etc/nginx/conf.d/kv.template

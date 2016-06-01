@@ -1,27 +1,50 @@
-app:
-  build: .
-  dockerfile: docker/app/Dockerfile
-  volumes:
-    - "kv_database:/data"
-    - "kv_media:/media"
-  links:
-    - memcached
-admin:
-  build: .
-  dockerfile: docker/app/Dockerfile
-  volumes_from:
-    - app
-  links:
-    - memcached
-  environment:
-    DJANGO_ADMIN: 'y'
-memcached:
-  image: memcached:1.4.24
-  command: memcached -m 128
-nginx:
-  build: docker/nginx
-  links:
-    - app
-    - admin
-  volumes_from:
-    - app
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    volumes:
+      - "database:/data"
+      - "media:/media"
+    depends_on:
+      - memcached
+    environment:
+      GOOGLE_MAPS_API_KEY: "AIzaSyAWMUQem-esNXNeN-wmY1DdgETAep4vvJ4"
+
+  admin:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    volumes_from:
+      - app
+    depends_on:
+      - memcached
+    environment:
+      DJANGO_ADMIN: 'y'
+
+  memcached:
+    image: memcached:1.4.24
+    command: memcached -m 128
+
+  nginx_http: &nginx
+    build:
+      context: &nginx_context docker/nginx
+      args:
+        PROTOCOL: http
+    depends_on:
+      - app
+      - admin
+    volumes_from:
+      - app
+
+  nginx_https:
+    <<: *nginx
+    build:
+      context: *nginx_context
+      args:
+        PROTOCOL: https
+
+volumes:
+  database: {}
+  media: {}

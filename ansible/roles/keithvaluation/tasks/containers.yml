@@ -5,18 +5,19 @@
 - name: Build all docker images
   command: dc-kv build
 
-- name: Stop existing containers
-  command: dc-kv stop -t 10
+- name: Start containers (except https)
+  command: dc-kv up -d nginx_http
 
-- include: ssl.yml domain={{ admin_hostname }}
+- include: ssl.yml
+  vars:
+    domain: "{{ admin_hostname }}"
+    volume: "{{ project_name }}_letsencrypt"
+    refresh_command: "dc-kv exec nginx_https kill -HUP 1"
+  tags:
+    - ssl
 
-- name: Remove existing containers
-  command: dc-kv rm -f
-
-- name: Start containers
-  command: dc-kv up -d
-
-#- include: data.yml
+- name: Start https containers
+  command: dc-kv up -d nginx_https
 
 - command: docker images --filter dangling=true -q
   register: dangling_images

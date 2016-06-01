@@ -4,7 +4,7 @@
 - name: Clone Repo
   git:
     repo: git@github.com:keitwb/keithvaluation.git
-    dest: /srv/keithvaluation
+    dest: "{{ code_dir }}"
     accept_hostkey: yes
     key_file: /etc/deploy.key
     depth: 1
