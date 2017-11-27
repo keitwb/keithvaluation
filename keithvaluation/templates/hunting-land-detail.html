@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extracss %}
+<link href="{% static "css/lightbox.min.css" %}" rel="stylesheet">
+<style>
+  #map { height: 500px; }
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .image-container img {
+    padding: 2px;
+  }
+
+  .image-container img:hover {
+    background-color: #4ae;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .italics {
+    font-style: italic;
+  }
+
+  .detail-data div {
+    margin-bottom: .1em;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'hunting-land' %}">Back to Hunting Land</a>
+<div class="hunting-lease">
+  <h1>
+    {{ object.property_name }}
+  </h1>
+  <div class="detail-data">
+    <div style="font-style: italic; margin-bottom: 1em;">{{ object.description|linebreaks }}</div>
+    <div>Size: <span class="bold">{{ object.acreage }} Acres</span></div>
+    <div>Location: <span class="bold">{{ object.county }} County</span></div>
+    {% if object.lease_rate %}
+    <div>Leases for <span class="bold">${{ object.lease_rate}}/{{ object.lease_rate_unit }}</span> (${{ object.price_per_acre | floatformat:2 }}/acre/{{ object.lease_rate_unit }})</div>
+    {% endif %}
+    <div>Available <span style="font-weight: bold;">{% if property.available_now %}now{% else %}as of {{ property.available_date | date:"n/j/Y"}}{% endif %}</span> for lease</div>
+    <div>Contact <a href="mailto:info@keithvaluation.com">info@keithvaluation.com</a> for more information.</div>
+  </div>
+
+  <h3>Images</h3>
+  <div class="image-container">
+    {% for img in object.images.all %}
+    <div style="padding: 1em 1em; display: flex; flex-direction: column; width: 25%;">
+      <a href="{{ img.file.url }}" data-lightbox="images" data-title="{{ img.description }}">
+        <img src="{{ img.file.url }}" style="max-width: 100%;"/>
+      </a>
+      <div>{{ img.description }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h3>Map</h3>
+  <div class="italics" style="margin-bottom: 1em">Vehicular entrypoints to the land are indicated by the red markers.</div>
+  <div id="map"></div>
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: {{ object.center_point.0 }}, lng: {{ object.center_point.1 }}},
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+      });
+
+      var outlineCoords = [
+      {% for lat, long in object.boundary_point_list %}
+        {lat: {{ lat }}, lng: {{ long }} },
+      {% endfor %}
+      ];
+
+      var outline = new google.maps.Polyline({
+          path: outlineCoords,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+
+      outline.setMap(map);
+
+      var letter = 'A';
+      {% for lat, long in object.entry_point_list %}
+      new google.maps.Marker({
+        position: {lat: {{ lat }}, lng: {{ long }} },
+        title: 'Entry point',
+        label: letter,
+        map: map,
+      });
+      letter = String.fromCharCode(letter.charCodeAt() + 1);
+      {% endfor %}
+
+      map.fitBounds({
+        north: {{ object.extents.north }},
+        south: {{ object.extents.south }},
+        east: {{ object.extents.east }},
+        west: {{ object.extents.west }},
+      }, 2);
+    }
+  </script>
+  <script src="http://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+  <script src="{% static "js/lightbox-plus-jquery.min.js" %}"></script>
+</div>
+
+{% endblock %}

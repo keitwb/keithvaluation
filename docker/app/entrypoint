@@ -10,6 +10,7 @@ if [[ -z $1 ]]
 then
   python /app/manage.py migrate --noinput
   python /app/manage.py collectstatic --noinput
+  python /app/manage.py clear_cache
 
   exec gunicorn -c /app/docker/app/gunicorn-config.py keithvaluation.wsgi
 else
