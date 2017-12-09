@@ -8,11 +8,13 @@
 - name: Start containers (except https)
   command: dc-kv up -d nginx_http
 
+- include: data.yml
+
 - include: ssl.yml
   vars:
     domain: "{{ admin_hostname }}"
     volume: "{{ project_name }}_letsencrypt"
-    refresh_command: "dc-kv exec nginx_https kill -HUP 1"
+    refresh_command: "/usr/local/bin/dc-kv kill -s HUP nginx_https"
   tags:
     - ssl
 

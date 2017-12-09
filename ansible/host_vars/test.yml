@@ -1,0 +1,8 @@
+---
+git_version: hunting-leases
+app_hostname: test.keithvaluation.com
+admin_hostname: test-admin.keithvaluation.com
+google_analytics_id:
+static_hostname: test.keithvaluation.com
+static_path: '/static/'
+robots_disallow: '/'

@@ -14,8 +14,9 @@ services:
   admin:
     restart: always
     environment:
-      <<: *app_env
-      SITE_HOSTNAME: &admin_hostname {{ admin_hostname }}
+      SITE_HOSTNAME: {{ admin_hostname }}
+      #DJANGO_STATIC_HOSTNAME: {{ static_hostname }}
+      #DJANGO_STATIC_PATH: {{ static_path }}
 
   memcached:
     restart: always
@@ -26,9 +27,11 @@ services:
      - "80:80"
     volumes:
       - "/docker-run/nginx-root:/var/tmp/nginx"
-    environment:
-      APP_HOSTNAME: *app_hostname
-      ADMIN_HOSTNAME: *admin_hostname
+    environment: &nginx_env
+      APP_HOSTNAME: {{ app_hostname }}
+      ADMIN_HOSTNAME: {{ admin_hostname }}
+      DISALLOW: "{{ robots_disallow }}"
+
 
   nginx_https:
     <<: *http
@@ -36,6 +39,9 @@ services:
      - "443:443"
     volumes:
       - "letsencrypt:/etc/letsencrypt"
+    environment:
+      <<: *nginx_env
+      DISALLOW: '/'
 
 volumes:
-  letsencrypt: {}
+ letsencrypt: {}

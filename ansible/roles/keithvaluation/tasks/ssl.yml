@@ -9,7 +9,7 @@
   shell: &le_command >
     /usr/bin/docker run
     --rm
-    -v "{{volume}}:/etc/letsencrypt"
+    -v "kv_letsencrypt:/etc/letsencrypt"
     -v "/docker-run/letsencrypt-{{ domain }}.ini:/etc/letsencrypt/cli.ini"
     -v "/docker-run/nginx-root:/var/tmp/nginx"
     quay.io/letsencrypt/letsencrypt:latest

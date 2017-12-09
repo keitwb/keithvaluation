@@ -1,13 +1,13 @@
 ---
-- stat: path=/tmp/kv-db-import.sql
+- stat: path=/tmp/kv-db-import.db
   register: db_import_file
 
 - name: Import database file if present
-  command: docker cp /tmp/kv-db-import.sql kv_app_1:/data/keithvaluation.db
+  command: docker cp /tmp/kv-db-import.db kv_app_1:/data/sqlite/keithvaluation.db
   when: db_import_file.stat.exists
 
 - name: Delete database import file
-  file: path=/tmp/kv-db-import.sql state=absent
+  file: path=/tmp/kv-db-import.db state=absent
 
 
 - stat: path=/tmp/kv-media-import
