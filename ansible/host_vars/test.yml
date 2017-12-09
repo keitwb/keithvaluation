@@ -1,5 +1,5 @@
 ---
-git_version: hunting-leases
+git_version: master
 app_hostname: test.keithvaluation.com
 admin_hostname: test-admin.keithvaluation.com
 google_analytics_id:

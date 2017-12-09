@@ -33,12 +33,6 @@ class NewslettersView(ListView):
     model = models.Newsletter
 
 
-class ExpertTestimonyView(ListView):
-    page_title = 'Expert Testimony'
-    template_name = 'list-pages/expert-testimony.html'
-    model = models.ExpertTestimony
-
-
 class WhitePapersView(ListView):
     page_title = 'White Papers'
     template_name = 'list-pages/white-papers.html'

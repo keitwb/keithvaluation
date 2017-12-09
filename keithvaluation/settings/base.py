@@ -34,6 +34,7 @@ TEMPLATES = [{
         'context_processors': (
             'django.core.context_processors.media',
             'keithvaluation.context_processors.google_keys',
+            'keithvaluation.context_processors.feature_flags',
         ),
         'loaders': [
             'django.template.loaders.app_directories.Loader',

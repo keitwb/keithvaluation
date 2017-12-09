@@ -6,12 +6,13 @@ body {
  text-align:justify;
 }
 
-table.twrap {
+.twrap {
  border-collapse:collapse;
  border: 0;
  width:100%;
  margin:0;
  padding:0;
+ display: flex;
 }
 
 
@@ -23,7 +24,7 @@ table.twrap {
   }
 }
 
-td.navbar {
+.navbar {
  width: 13em;
  padding: 1em .25em 1em 0;
  background-color:#003399;
@@ -40,8 +41,7 @@ div.topbar {
  border:0;
 }
 
-td.rightbar {
- /*width: 15%;*/
+.rightbar {
  width: auto;
  padding:0;
  margin:0;
@@ -56,7 +56,7 @@ div.rightbar {
  margin: 0;
 }
 
-td.bottombar {
+.bottombar {
  height: 6px; 
  /*padding: 0 1.25em 0 1.25em;*/
  background-color: #000000; /*#006699; */
@@ -74,6 +74,7 @@ div.header {
  margin: 0;
  clear: none;
  background-color: #003399;
+ width: 100%;
 }
 
 .mainlogo {
@@ -97,13 +98,14 @@ div.contactus {
 .header a:hover{ color: #FFF; }
 .header a:active{ color: #FFF; }
 
-td.contents {
+.contents {
  /*margin-left: 12em;*/
  padding: 2em;
  background-color: #ffffff;
  text-align: justify;
  vertical-align: top;
  /*width: 50em;*/
+ width: 100%;
 }
 
 div.contenttitle {
@@ -145,21 +147,22 @@ a.newslinks {
 }
 
 input {
-display:inline; 
+  display:inline;
 }
 
 table.coursetable{
-text-align:left;
+  text-align:left;
 }
 
 table.saltable td {
- padding:0 2em;
+  padding:0 2em;
 }
+
 table.saltable tr>td:first-child {
- text-align:right;
- font-weight:bold;
+  text-align:right;
+  font-weight:bold;
 }
 
 ul {
-margin:0;
+  margin:0;
 }

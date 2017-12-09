@@ -7,6 +7,10 @@ def cache_page(timeout=60*15):
 
     def wrap(func):
         def view(request, *args, **kwargs):
+            # Skip caching altogether if there are query args
+            if len(request.GET) > 0:
+                return func(request, *args, **kwargs)
+
             cache_key = '_page_cache_%s' % request.path
             stored = cache.get(cache_key)
             if stored:

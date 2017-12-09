@@ -86,5 +86,10 @@ class PropertyAdmin(admin.ModelAdmin):
 kv_admin_site.register(kv_models.Property, PropertyAdmin)
 
 
+class FeatureFlagAdmin(admin.ModelAdmin):
+    list_display = ('name', 'enabled')
+
+kv_admin_site.register(kv_models.FeatureFlag, FeatureFlagAdmin)
+
 kv_admin_site.register(User, UserAdmin)
 kv_admin_site.register(Site)
