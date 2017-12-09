@@ -58,5 +58,12 @@ class Newsletter(ResearchModel):
     RESEARCH_TYPE = 'newsletters'
 
 
+class ExpertTestimony(ResearchModel):
+    class Meta:
+        verbose_name_plural = "expert testimonies"
+
+    RESEARCH_TYPE = 'expert-tesimony'
+
+
 class WhitePaper(ResearchModel):
     RESEARCH_TYPE = 'whitepapers'

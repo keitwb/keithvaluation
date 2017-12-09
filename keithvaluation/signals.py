@@ -8,5 +8,5 @@ import requests
 
 
 @receiver(post_save)
-def clear_nginx_cache(sender, **kwargs):
+def clear_cache(sender, **kwargs):
     cache.clear()

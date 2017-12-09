@@ -50,6 +50,7 @@ research_models = [
     kv_models.EconomicTrend,
     kv_models.CourtCase,
     kv_models.Newsletter,
+    kv_models.ExpertTestimony,
     kv_models.WhitePaper
 ]
 for rm in research_models:
@@ -70,6 +71,19 @@ kv_admin_site.register(kv_models.NewsItem, NewsAdmin)
 class ExternalLinkAdmin(admin.ModelAdmin):
     list_display = ('title', 'url', 'description')
 kv_admin_site.register(kv_models.ExternalLink, ExternalLinkAdmin)
+
+
+class ImageInline(admin.TabularInline):
+    model = kv_models.Image
+    extra = 1
+
+
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ('property_name', 'county', 'available_to_hunt')
+    inlines = [ImageInline]
+    prepopulated_fields = {"slug": ("property_name",)}
+
+kv_admin_site.register(kv_models.Property, PropertyAdmin)
 
 
 kv_admin_site.register(User, UserAdmin)
