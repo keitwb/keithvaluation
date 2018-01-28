@@ -46,21 +46,29 @@ class Property(models.Model):
         return float(self.lease_rate) / float(self.acreage)
 
     @property
-    def boundary_point_list(self):
+    def boundary_point_rings(self):
         if not self.boundary_points:
             return []
-        return [(float(c[0].strip()), float(c[1].strip())) for p in self.boundary_points.splitlines() for c in [p.split(',')]]
+        point_str = self.boundary_points.replace('\r\n', '\n').replace('\r', '\n')
+        rings = point_str.split("\n\n")
+        return [
+            [(float(c[0].strip()), float(c[1].strip()))
+                for p in r.splitlines()
+                for c in [p.split(',')]]
+            for r in rings]
 
     @property
     def center_point(self):
-        lats = [p[0] for p in self.boundary_point_list]
-        longs = [p[1] for p in self.boundary_point_list]
+        lats = [p[0] for r in self.boundary_point_rings for p in r]
+        longs = [p[1] for r in self.boundary_point_rings for p in r]
+        if not lats or not longs:
+            return None
         return (sum(lats) / len(lats), sum(longs) / len(longs))
 
     @property
     def extents(self):
-        lats = [p[0] for p in self.boundary_point_list]
-        longs = [p[1] for p in self.boundary_point_list]
+        lats = [p[0] for r in self.boundary_point_rings for p in r]
+        longs = [p[1] for r in self.boundary_point_rings for p in r]
         return {
             "north": max(lats),
             "south": min(lats),

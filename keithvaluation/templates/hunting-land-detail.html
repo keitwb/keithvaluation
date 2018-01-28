@@ -61,6 +61,7 @@
     {% endfor %}
   </div>
 
+  {% if object.center_point %}
   <h3>Map</h3>
   <div class="italics" style="margin-bottom: 1em">Vehicular entrypoints to the land are indicated by the red markers.</div>
   <div id="map"></div>
@@ -73,21 +74,19 @@
         mapTypeId: google.maps.MapTypeId.TERRAIN
       });
 
-      var outlineCoords = [
-      {% for lat, long in object.boundary_point_list %}
-        {lat: {{ lat }}, lng: {{ long }} },
-      {% endfor %}
-      ];
-
-      var outline = new google.maps.Polyline({
-          path: outlineCoords,
+      {% for ring in object.boundary_point_rings %}
+      new google.maps.Polyline({
+          path: [
+        {% for lat, long in ring %}
+            {lat: {{ lat }}, lng: {{ long }} },
+        {% endfor %}
+          ],
           geodesic: true,
           strokeColor: '#FF0000',
           strokeOpacity: 1.0,
           strokeWeight: 2
-        });
-
-      outline.setMap(map);
+        }).setMap(map);
+      {% endfor %}
 
       var letter = 'A';
       {% for lat, long in object.entry_point_list %}
@@ -109,6 +108,7 @@
     }
   </script>
   <script src="http://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+  {% endif %}
   <script src="{% static "js/lightbox-plus-jquery.min.js" %}"></script>
 </div>
 
