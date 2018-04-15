@@ -6,15 +6,15 @@ services:
      - ".:/app"
     environment: &env
       DJANGO_DEBUG: 'y'
-      SITE_HOSTNAME: &app_host 'kv.dev'
-      DJANGO_STATIC_HOSTNAME: 'www.kv.dev'
+      SITE_HOSTNAME: &app_host 'dev.keithvaluation.com'
+      DJANGO_STATIC_HOSTNAME: 'www.dev.keithvaluation.com'
       DJANGO_STATIC_PATH: '/static/'
   admin:
     <<: *app
     environment:
       <<: *env
-      SITE_HOSTNAME: &admin_host 'kv-admin.dev'
-      DJANGO_STATIC_HOSTNAME: 'kv-admin.dev'
+      SITE_HOSTNAME: &admin_host 'dev-admin.keithvaluation.com'
+      DJANGO_STATIC_HOSTNAME: 'dev-admin.keithvaluation.com'
 
   nginx_http:
     ports:
@@ -29,4 +29,4 @@ services:
     ports:
       - "127.0.7.1:443:443"
     volumes:
-      - "./dev-ssl:/etc/letsencrypt/live/kv-admin.dev"
+      - "./dev-ssl:/etc/letsencrypt/live/dev-admin.keithvaluation.com"
