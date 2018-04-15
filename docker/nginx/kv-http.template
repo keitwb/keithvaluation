@@ -8,8 +8,6 @@ server {
   rewrite ^(.*)$ http://www.$host:80$1 redirect;
 }
 
-proxy_cache_path /var/nginx_page_cache levels=1:2 keys_zone=kv:10m inactive=24h max_size=50m;
-
 server {
     listen 80;
     server_name www.${APP_HOSTNAME};
@@ -59,6 +57,13 @@ server {
         proxy_read_timeout 10;
         proxy_pass http://app;
     }
+
+
+    location '/.well-known/acme-challenge' {
+        default_type "text/plain";
+        root /var/tmp/nginx;
+    }
+
     # what to serve if upstream is not available or crashes
     error_page 500 502 503 504 /build/dist/50x.html;
 }

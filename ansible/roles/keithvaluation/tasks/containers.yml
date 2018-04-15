@@ -18,6 +18,14 @@
   tags:
     - ssl
 
+- include: ssl.yml
+  vars:
+    domain: "www.{{ app_hostname }}"
+    volume: "{{ project_name }}_letsencrypt"
+    refresh_command: "/usr/local/bin/dc-kv kill -s HUP nginx_https"
+  tags:
+    - ssl
+
 - name: Start https containers
   command: dc-kv up -d nginx_https
 
