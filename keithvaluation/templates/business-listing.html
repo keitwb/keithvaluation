@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load markdown %}
+
+{% block extracss %}
+<style>
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'business-listings' %}">Back to Business Listings</a>
+<div class="business-listing">
+  <h1>
+    {{ object.business_name }}
+  </h1>
+  <h4>{{ object.subtitle }}</h4>
+  <div style="margin-bottom: 2em;">{{ object.description | markdown | safe }}</div>
+  <div style="margin-bottom: 2em;">Email <a href="mailto:twb@keithvaluation.com">twb@keithvaluation.com</a> or call 910-850-7301 for more information.</div>
+  {% if object.flier %}
+  <div><a href="{{ object.flier.url }}">Download Listing PDF</a></div>
+  {% endif %}
+</div>
+
+{% endblock %}

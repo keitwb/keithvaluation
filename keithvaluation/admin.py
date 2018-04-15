@@ -86,6 +86,13 @@ class PropertyAdmin(admin.ModelAdmin):
 kv_admin_site.register(kv_models.Property, PropertyAdmin)
 
 
+class BusinessListingAdmin(admin.ModelAdmin):
+    list_display = ('business_name',)
+    prepopulated_fields = {"slug": ("business_name",)}
+
+kv_admin_site.register(kv_models.BusinessListing, BusinessListingAdmin)
+
+
 class FeatureFlagAdmin(admin.ModelAdmin):
     list_display = ('name', 'enabled')
 

@@ -7,7 +7,7 @@ from keithvaluation import views
 from .decorators import cache_page
 from .sitemap import KVSitemap
 
-cacher = cache_page(60*60)
+cacher = cache_page(60*60*2)
 
 pages = [
     { "template": "aboutus.html", "name": "aboutus", "title": "About Us", },
@@ -34,6 +34,8 @@ urlpatterns = patterns('',
     url(r'^economic-trends/$', cacher(views.EconomicTrendsView.as_view()), name='economic-trends'),
     url(r'^newsletters/$', cacher(views.NewslettersView.as_view()), name='newsletters'),
     url(r'^whitepapers/$', cacher(views.WhitePapersView.as_view()), name='whitepapers'),
+    url(r'^business-listings/$', cacher(views.BusinessListings.as_view()), name='business-listings'),
+    url(r'^business-listing/(?P<slug>[-\w]+)/$', cacher(views.BusinessListingDetail.as_view()), name='business-listing-detail'),
     url(r'^hunting-land/$', cacher(views.HuntingLand.as_view()), name='hunting-land'),
     url(r'^hunting-land/(?P<slug>[-\w]+)/$', cacher(views.HuntingLandDetail.as_view()), name='hunting-land-detail'),
 

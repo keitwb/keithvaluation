@@ -23,7 +23,7 @@
   {% for property in county.list %}
     <div class="property" style="display: flex; align-items: center;">
       <div style="width: 30%; height: auto;">
-        <a href="{% url 'hunting-land-detail' slug=property.slug %}"><img src="{{ property.images.first.file.url }}" style="max-width: 100%;"/></a>
+        <a href="{% url 'hunting-land-detail' slug=property.slug %}"><img src="{{ property.images.first.file.url }}" style="width: 100%"/></a>
       </div>
       <div style="padding-left: 1rem;" class="hunting-land-list-data">
         <div style="font-weight: bold; font-size: 120%;"><a href="{% url 'hunting-land-detail' slug=property.slug %}">{{ property.property_name }}</a></div>

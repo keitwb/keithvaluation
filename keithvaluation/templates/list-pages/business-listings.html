@@ -1,0 +1,13 @@
+{% extends 'list-pages/base.html' %}
+{% block topmatter %}
+  <div class="contenttitle">Businesses For Sale</div>
+{% endblock %}
+
+{% block entries %}
+  {% for o in object_list %}
+    <a class="restitle" href="{% url 'business-listing-detail' slug=o.slug %}">{{ o.business_name }}</a>
+    <div class="resdesc">
+      {{ o.subtitle }}
+    </div>
+  {% endfor %}
+{% endblock %}
