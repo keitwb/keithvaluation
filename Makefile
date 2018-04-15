@@ -12,3 +12,10 @@ push-images:
 	docker push keithvaluation/reverse-proxy-http:$(tag)
 	docker push keithvaluation/reverse-proxy-https:$(tag)
 
+.PHONY: run-app-dev
+run-app-dev:
+	./dc exec app ./manage.py runserver 0.0.0.0:8000
+
+.PHONY: run-admin-dev
+run-admin-dev:
+	./dc exec admin ./manage.py runserver 0.0.0.0:8000
