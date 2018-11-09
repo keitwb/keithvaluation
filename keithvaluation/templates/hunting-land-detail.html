@@ -33,6 +33,7 @@
 {% endblock %}
 
 {% block content %}
+{% load humanize %}
 <a href="{% url 'hunting-land' %}">Back to Hunting Land</a>
 <div class="hunting-lease">
   <h1>
@@ -43,10 +44,10 @@
     {% if not property.available_now %}
     <p style="color: #b24330">Currently under lease</p>
     {% endif %}
-    <div>Size: <span class="bold">{{ object.acreage }} Acres</span></div>
+    <div>Size: <span class="bold">{{ object.acreage | intcomma }} Acres</span></div>
     <div>Location: <span class="bold">{{ object.county }} County</span></div>
     {% if object.lease_rate %}
-    <div>Leases for <span class="bold">${{ object.lease_rate}}/{{ object.lease_rate_unit }}</span> (${{ object.price_per_acre | floatformat:2 }}/acre/{{ object.lease_rate_unit }})</div>
+    <div>Leases for <span class="bold">${{ object.lease_rate | intcomma}}/{{ object.lease_rate_unit }}</span> (${{ object.price_per_acre |floatformat:2 }}/acre/{{ object.lease_rate_unit }})</div>
     {% endif %}
     <div><span style="font-weight: bold;">{% if property.available_now %}Available now for lease{% else %}<span style="color: #b24330">Not available until {{ property.available_date | date:"n/j/Y"}} for lease</span>{% endif %}</span></div>
     <div>Contact <a href="mailto:info@keithvaluation.com">info@keithvaluation.com</a> for more information.</div>

@@ -1,0 +1,11 @@
+  <h3>Images</h3>
+  <div class="image-container">
+    {% for img in object.images.all %}
+    <div style="padding: 1em 1em; display: flex; flex-direction: column; width: 25%;">
+      <a href="{{ img.file.url }}" data-lightbox="images" data-title="{{ img.description }}">
+        <img src="{{ img.file.url }}" style="max-width: 100%;"/>
+      </a>
+      <div>{{ img.description }}</div>
+    </div>
+    {% endfor %}
+  </div>

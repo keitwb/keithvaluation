@@ -9,4 +9,7 @@ import requests
 
 @receiver(post_save)
 def clear_cache(sender, **kwargs):
+    """
+    Clear the memcached cache every time anything is updated in the database
+    """
     cache.clear()

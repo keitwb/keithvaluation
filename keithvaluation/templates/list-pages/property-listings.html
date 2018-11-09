@@ -1,0 +1,45 @@
+{% extends 'list-pages/base.html' %}
+{% block topmatter %}
+  <h1>Properties for Sale</h1>
+{% endblock %}
+
+{% block extracss %}
+  <style>
+    .hunting-land-list-data div {
+      padding-bottom: 0.1em;
+    }
+  </style>
+{% endblock %}
+
+{% block entries %}
+  {% load humanize %}
+  {% for property in object_list %}
+    <div class="property" style="display: flex; align-items: center; border-bottom: 1px solid #e4e6e8; margin-bottom: 1em;">
+      <div style="flex: 7" class="hunting-land-list-data">
+        <div style="font-weight: bold; font-size: 120%;"><a href="{% url 'property-listing-detail' slug=property.slug %}">{{ property.property_name }}</a></div>
+        <div>{% if property.city %}{{property.city}}{% else %}{{property.county}} County{% endif %}, {{property.state}}</div>
+        <div>Land: <span style="font-weight: bold">{{ property.acreage }} Acres</span></div>
+      {% if property.building_sqft %}
+        <div>Building(s): <span style="font-weight: bold;">{{ property.building_sqft | intcomma }} sqft</span></div>
+      {% endif %}
+        <div style="font-style: italic;">{{ property.description|linebreaks }}</div>
+    {% if property.available_for_lease %}
+      {% if not property.available_now %}
+        <div style="color: #b24330">Currently under lease</div>
+      {% endif %}
+        <div><span style="font-weight: bold;">{% if property.available_now %}Available now for lease{% else %}<span style="color: #b24330">Not available until {{ property.available_date | date:"n/j/Y"}} for lease</span>{% endif %}</span></div>
+    {% endif %}
+    {% if property.available_for_sale %}
+        <div style="font-weight: bold;">For Sale</div>
+      {% if property.sale_price %}
+        <div>Asking Sale Price: <span style="font-weight: bold">${{ property.sale_price | intcomma }}</span></div>
+      {% endif %}
+    {% endif %}
+      </div>
+      <div style="flex: 2; margin-left: 1em; height: auto;">
+        <a href="{% url 'property-listing-detail' slug=property.slug %}"><img src="{{ property.images.first.file.url }}" style="width: 100%"/></a>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}

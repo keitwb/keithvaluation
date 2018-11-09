@@ -25,8 +25,8 @@ body {
 }
 
 .navbar {
- width: 13em;
- padding: 1em .25em 1em 0;
+ width: 13.5em;
+ padding: 1em .4em 1em .4em;
  background-color:#003399;
  border-right: solid .25em black;
  text-align: right;

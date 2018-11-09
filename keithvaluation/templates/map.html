@@ -1,0 +1,49 @@
+
+  {% if object.center_point %}
+  <h3>Map</h3>
+  <div class="italics" style="margin-bottom: 1em">Vehicular entrypoints to the land are indicated by the red markers.</div>
+  <div id="map"></div>
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: {{ object.center_point.0 }}, lng: {{ object.center_point.1 }}},
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+      });
+
+      {% for ring in object.boundary_point_rings %}
+      new google.maps.Polyline({
+          path: [
+        {% for lat, long in ring %}
+            {lat: {{ lat }}, lng: {{ long }} },
+        {% endfor %}
+          ],
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        }).setMap(map);
+      {% endfor %}
+
+      var letter = 'A';
+      {% for lat, long in object.entry_point_list %}
+      new google.maps.Marker({
+        position: {lat: {{ lat }}, lng: {{ long }} },
+        title: 'Entry point',
+        label: letter,
+        map: map,
+      });
+      letter = String.fromCharCode(letter.charCodeAt() + 1);
+      {% endfor %}
+
+      map.fitBounds({
+        north: {{ object.extents.north }},
+        south: {{ object.extents.south }},
+        east: {{ object.extents.east }},
+        west: {{ object.extents.west }},
+      }, 2);
+    }
+  </script>
+  <script src="http://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+  {% endif %}

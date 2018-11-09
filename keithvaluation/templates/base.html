@@ -95,8 +95,13 @@
                <a href="{% url 'hunting-land' %}">Hunting Land</a>
             </li>
             {% endif %}
+            {% if 'hide_property_listings' not in feature_flags %}
             <li>
-              <a href="{% url 'business-listings' %}">Businesses For Sale</a>
+              <a href="{% url 'property-listings' %}">Properties for Sale</a>
+            </li>
+            {% endif %}
+            <li>
+              <a href="{% url 'business-listings' %}">Businesses for Sale</a>
             </li>
           </ul>
            <div style="text-align: center; padding-top: 20px; width: 100%;">

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extracss %}
+<link href="{% static "css/lightbox.min.css" %}" rel="stylesheet">
+<style>
+  #map { height: 500px; }
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .image-container img {
+    padding: 2px;
+  }
+
+  .image-container img:hover {
+    background-color: #4ae;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .italics {
+    font-style: italic;
+  }
+
+  .detail-data div {
+    margin-bottom: .1em;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+{% load humanize %}
+<a href="{% url 'property-listings' %}">Back to Property Listings</a>
+<div class="property-listing">
+  <h1>
+    {{ object.property_name }}
+  </h1>
+  <div class="detail-data">
+    {% if object.available_for_sale %}
+        <div class="bold" style="color: #3f59bf;">For Sale</div>
+      {% if object.sale_price %}
+        <div>Asking Sale Price: <span class="bold">${{ object.sale_price | intcomma }}</span></div>
+      {% endif %}
+    {% endif %}
+  {% if object.acreage %}
+    <div>Land Size: <span class="bold">{{ object.acreage | intcomma }} Acres</span></div>
+  {% endif %}
+  {% if object.building_sqft %}
+    <div>Building(s) Size: <span class="bold">{{ object.building_sqft | intcomma }} sqft.</span></div>
+  {% endif %}
+  <div>Location: <span class="bold">{% if object.address %}{{object.address}}, {% endif %}{% if object.city %}{{object.city}}{% else %}{{object.county}} County{% endif %}, {{object.state}}</span></div>
+  {% if object.available_for_lease and object.lease_rate %}
+  <div>{% if object.available_for_sale %}Also available for lease at{% else %}For lease at{% endif %} <span class="bold">${{ object.lease_rate | intcomma }}/{{ object.lease_rate_unit }}</span></div>
+    <div>Available <span style="font-weight: bold;">{% if object.available_now %}now{% else %}as of {{ object.available_date | date:"n/j/Y"}}{% endif %}</span> for lease</div>
+  {% endif %}
+    <div style="font-style: italic; margin-bottom: 1em;">{{ object.description|linebreaks }}</div>
+    <div>Contact <a href="mailto:info@keithvaluation.com">info@keithvaluation.com</a> or call 910-323-3222 for more information.</div>
+  </div>
+
+  {% include "images.html" %}
+  {% include "map.html" %}
+  <script src="{% static "js/lightbox-plus-jquery.min.js" %}"></script>
+</div>
+
+{% endblock %}
