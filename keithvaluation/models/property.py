@@ -9,6 +9,7 @@ def image_path(instance, filename):
 class Property(models.Model):
     class Meta:
         verbose_name_plural = "properties"
+        ordering = ['county', 'property_name', 'available_date']
 
     property_name = models.CharField(max_length=256,
                                      help_text="A short name for the property")

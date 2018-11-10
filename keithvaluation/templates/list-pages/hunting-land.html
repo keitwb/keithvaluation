@@ -22,14 +22,17 @@
     <h2 id="{{ county.grouper }}">{{ county.grouper }} County, NC</h2>
   {% for property in county.list %}
     <div class="property" style="display: flex; align-items: center;">
-      <div style="width: 30%; height: auto;">
-        <a href="{% url 'hunting-land-detail' slug=property.slug %}"><img src="{{ property.images.first.file.url }}" style="width: 100%"/></a>
-      </div>
-      <div style="padding-left: 1rem;" class="hunting-land-list-data">
+      <div style="flex: 7" class="hunting-land-list-data">
         <div style="font-weight: bold; font-size: 120%;"><a href="{% url 'hunting-land-detail' slug=property.slug %}">{{ property.property_name }}</a></div>
+        {% if not property.available_now %}
+        <div style="color: #b24330">Currently under lease</div>
+        {% endif %}
         <div style="font-style: italic;">{{ property.description|linebreaks }}</div>
         <div>{{ property.acreage }} Acres</div>
-        <div>Available <span style="font-weight: bold;">{% if property.available_now %}now{% else %}as of {{ property.available_date | date:"n/j/Y"}}{% endif %}</span> for lease</div>
+        <div><span style="font-weight: bold;">{% if property.available_now %}Available now for lease{% else %}<span style="color: #b24330">Not available until {{ property.available_date | date:"n/j/Y"}} for lease</span>{% endif %}</span></div>
+      </div>
+      <div style="flex: 2; margin-left: 1em; height: auto;">
+        <a href="{% url 'hunting-land-detail' slug=property.slug %}"><img src="{{ property.images.first.file.url }}" style="width: 100%"/></a>
       </div>
     </div>
   {% endfor %}

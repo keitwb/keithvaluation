@@ -40,12 +40,15 @@
   </h1>
   <div class="detail-data">
     <div style="font-style: italic; margin-bottom: 1em;">{{ object.description|linebreaks }}</div>
+    {% if not property.available_now %}
+    <p style="color: #b24330">Currently under lease</p>
+    {% endif %}
     <div>Size: <span class="bold">{{ object.acreage }} Acres</span></div>
     <div>Location: <span class="bold">{{ object.county }} County</span></div>
     {% if object.lease_rate %}
     <div>Leases for <span class="bold">${{ object.lease_rate}}/{{ object.lease_rate_unit }}</span> (${{ object.price_per_acre | floatformat:2 }}/acre/{{ object.lease_rate_unit }})</div>
     {% endif %}
-    <div>Available <span style="font-weight: bold;">{% if property.available_now %}now{% else %}as of {{ property.available_date | date:"n/j/Y"}}{% endif %}</span> for lease</div>
+    <div><span style="font-weight: bold;">{% if property.available_now %}Available now for lease{% else %}<span style="color: #b24330">Not available until {{ property.available_date | date:"n/j/Y"}} for lease</span>{% endif %}</span></div>
     <div>Contact <a href="mailto:info@keithvaluation.com">info@keithvaluation.com</a> for more information.</div>
   </div>
 
