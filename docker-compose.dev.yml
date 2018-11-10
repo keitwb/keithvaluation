@@ -30,3 +30,4 @@ services:
       - "127.0.7.1:443:443"
     volumes:
       - "./dev-ssl:/etc/letsencrypt/live/dev-admin.keithvaluation.com"
+      - "./dev-ssl:/etc/letsencrypt/live/www.dev.keithvaluation.com"
