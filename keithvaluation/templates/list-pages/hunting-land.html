@@ -21,7 +21,7 @@
   {% for county in county_list %}
     <h2 id="{{ county.grouper }}">{{ county.grouper }} County, NC</h2>
   {% for property in county.list %}
-    <div class="property" style="display: flex; align-items: center;">
+    <div class="property" style="display: flex; align-items: center; border-bottom: 1px solid #e4e6e8; margin-bottom: 1em;">
       <div style="flex: 7" class="hunting-land-list-data">
         <div style="font-weight: bold; font-size: 120%;"><a href="{% url 'hunting-land-detail' slug=property.slug %}">{{ property.property_name }}</a></div>
         {% if not property.available_now %}
