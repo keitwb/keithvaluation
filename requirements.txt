@@ -8,5 +8,5 @@ pylibmc==1.5.0
 six==1.9.0
 
 ipdb==0.10.2
-ipython==5.3.0
+ipython==7.16.3
 werkzeug==0.10.1
