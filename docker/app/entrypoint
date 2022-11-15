@@ -8,9 +8,9 @@ chown -R django.django /media
 
 if [[ -z $1 ]]
 then
-  python /app/manage.py migrate --noinput
-  python /app/manage.py collectstatic --noinput
-  python /app/manage.py clear_cache
+  python3 /app/manage.py migrate --noinput
+  python3 /app/manage.py collectstatic --noinput
+  python3 /app/manage.py clear_cache
 
   exec gunicorn -c /app/docker/app/gunicorn-config.py keithvaluation.wsgi
 else

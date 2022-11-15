@@ -18,12 +18,12 @@ kv_admin_site = KVAdminSite(name="kvadmin")
 
 
 class AdminImageWidget(AdminFileWidget):
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if value.url:
             img_tag = '<img src="%s"><br />' % value.url
         else:
             img_tag = ""
-        return mark_safe(img_tag + super(AdminImageWidget, self).render(name, value, attrs))
+        return mark_safe(img_tag + super(AdminImageWidget, self).render(name, value, attrs, renderer))
 
 
 class StaffAdmin(admin.ModelAdmin):
@@ -52,11 +52,20 @@ research_models = [
     kv_models.EconomicTrend,
     kv_models.CourtCase,
     kv_models.Newsletter,
-    kv_models.ExpertTestimony,
     kv_models.WhitePaper,
 ]
 for rm in research_models:
     kv_admin_site.register(rm, ResearchAdmin)
+
+class CondemnationCaseAdmin(admin.ModelAdmin):
+    list_display = ("owner", "property_type", "date")
+
+kv_admin_site.register(kv_models.CondemnationCase, CondemnationCaseAdmin)
+
+class JudicialHearingAdmin(admin.ModelAdmin):
+    list_display = ("case_number", "expert_witness", "date")
+
+kv_admin_site.register(kv_models.JudicialHearing, JudicialHearingAdmin)
 
 
 class NewsAdmin(admin.ModelAdmin):

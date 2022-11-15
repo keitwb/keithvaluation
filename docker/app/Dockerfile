@@ -1,13 +1,12 @@
-FROM ubuntu:14.04
+FROM ubuntu:22.04
 MAINTAINER Ben Keith <keitwb@gmail.com>
 EXPOSE 8000
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -q && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq \
-      python-pip \
-      python-tk \
-      python-dev \
-      python-setuptools \
+      python3-pip \
+      python3-tk \
+      python3-dev \
       libjpeg8-dev \
       libmemcached-dev \
       zlib1g-dev \

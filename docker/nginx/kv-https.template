@@ -21,12 +21,12 @@ server {
 
     client_max_body_size 5M;
 
-    location /static/media {
+    location /content/media {
         alias /media;
         expires max;
     }
 
-    location /static {
+    location /content/static {
         alias /build/dist;
         expires max;
     }
@@ -76,12 +76,12 @@ server {
 
     client_max_body_size 10M;
 
-    location /static/media {
+    location /content/media {
         alias /media;
         expires max;
     }
 
-    location /static {
+    location /content/static {
         alias /build/dist;
         expires max;
     }

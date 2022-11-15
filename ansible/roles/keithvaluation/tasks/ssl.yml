@@ -11,8 +11,7 @@
     --rm
     -v "kv_letsencrypt:/etc/letsencrypt"
     -v "/docker-run/letsencrypt-{{ domain }}.ini:/etc/letsencrypt/cli.ini"
-    -v "/docker-run/nginx-root:/var/tmp/nginx"
-    certbot/certbot:v1.3.0
+    certbot/dns-route53:v1.32.0
     certonly -c /etc/letsencrypt/cli.ini >> /var/log/letsencrypt.log 2>&1 &&
     ({{ refresh_command | default("true") }} || true)
 

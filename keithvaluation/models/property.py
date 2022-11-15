@@ -112,4 +112,4 @@ class Property(models.Model):
 class Image(models.Model):
     description = models.TextField()
     file = models.FileField(upload_to=image_path)
-    property = models.ForeignKey(Property, related_name="images")
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="images")

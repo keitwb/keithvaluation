@@ -24,7 +24,7 @@ INSTALLED_APPS = (
     "keithvaluation",
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     "django.middleware.common.CommonMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 )
@@ -35,7 +35,7 @@ TEMPLATES = [
         "OPTIONS": {
             "debug": DEBUG,
             "context_processors": (
-                "django.core.context_processors.media",
+                "django.template.context_processors.media",
                 "keithvaluation.context_processors.google_keys",
                 "keithvaluation.context_processors.feature_flags",
             ),
@@ -64,6 +64,8 @@ else:
         }
     }
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -78,13 +80,11 @@ USE_TZ = True
 
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 STATIC_ROOT = "/build/dist/"
-STATIC_URL = "//%s%s" % (
-    os.environ.get("DJANGO_STATIC_HOSTNAME", SERVER_HOSTNAME),
-    os.environ.get("DJANGO_STATIC_PATH", "/static/"),
-)
+STATIC_URL = "//%s/static/" % os.environ.get("DJANGO_STATIC_ROOT", SERVER_HOSTNAME + "/content")
 
 MEDIA_ROOT = "/media/"
-MEDIA_URL = STATIC_URL + "media/"
+MEDIA_URL = "//%s/media/" % os.environ.get("DJANGO_STATIC_ROOT", SERVER_HOSTNAME + "/content")
+
 
 GA_ACCOUNT = os.environ.get("DJANGO_GA_ACCOUNT", None)
 GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", None)

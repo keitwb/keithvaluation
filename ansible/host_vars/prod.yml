@@ -3,8 +3,8 @@ git_version: master
 app_hostname: keithvaluation.com
 admin_hostname: admin.keithvaluation.com
 google_analytics_id: UA-32385288-1
-static_hostname: d39pcpjksqjx5i.cloudfront.net
-static_path: '/'
+static_hostname: d2lqghabd1c9mz.cloudfront.net
+static_path: ''
 robots_disallow: ''
 database_backup_bucket: keithvaluation-db-backup
 media_backup_bucket: keithvaluation-media-backup

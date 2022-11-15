@@ -38,12 +38,13 @@ class Migration(migrations.Migration):
                 ('latitude', models.DecimalField(null=True, max_digits=9, decimal_places=6, blank=True)),
                 ('longitude', models.DecimalField(null=True, max_digits=9, decimal_places=6, blank=True)),
                 ('boundary_points', models.TextField(null=True, blank=True)),
-                ('county', models.ForeignKey(to='keithvaluation.County')),
+                ('county', models.ForeignKey(to='keithvaluation.County', on_delete=models.DO_NOTHING)),
             ],
         ),
         migrations.AddField(
             model_name='huntinglease',
             name='property',
-            field=models.ForeignKey(related_name='hunting_leases', to='keithvaluation.Property'),
+            field=models.ForeignKey(related_name='hunting_leases', to='keithvaluation.Property',
+                                    on_delete=models.DO_NOTHING),
         ),
     ]

@@ -11,17 +11,17 @@ INSTALLED_APPS += (
     'django.contrib.messages',
 )
 
-MIDDLEWARE_CLASSES += (
+MIDDLEWARE += (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 TEMPLATES[0]['OPTIONS']['context_processors'] += (
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    "django.template.context_processors.request",
 )
 
 ROOT_URLCONF = 'keithvaluation.urls_admin'

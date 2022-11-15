@@ -8,5 +8,4 @@
     - host_vars/{{inventory_hostname}}.yml
     - secrets/deploy_key.yml
   roles:
-    - docker
     - keithvaluation
