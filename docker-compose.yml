@@ -24,7 +24,7 @@ services:
       DJANGO_ADMIN: 'y'
 
   memcached:
-    image: memcached:1.4.24
+    image: memcached:1.6
     command: memcached -m 128
 
   nginx_http: &nginx

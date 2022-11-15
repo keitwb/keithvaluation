@@ -5,4 +5,4 @@ class KVConfig(AppConfig):
     verbose_name = 'Keithvaluation'
 
     def ready(self):
-        from .signals import *
+        from .signals import clear_cache

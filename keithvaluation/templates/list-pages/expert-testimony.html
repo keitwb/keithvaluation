@@ -1,0 +1,83 @@
+{% extends 'list-pages/base.html' %}
+{% block extracss %}
+  <style>
+    .contents table {
+      border: 1px solid #FFFFFF;
+      max-width: 100%;
+      text-align: center;
+      border-collapse: collapse;
+      margin: 1em auto;
+      table-layout: fixed;
+    }
+    .contents table td, .contents table th {
+      border: 1px solid #FFFFFF;
+      padding: 3px 2px;
+    }
+    .contents table tbody td {
+      font-size: 13px;
+      border: 1px solid #696969;
+    }
+    .contents table tr:nth-child(even) {
+      background: #D0E4F5;
+    }
+    .contents table thead {
+      border-bottom: 5px solid #FFFFFF;
+    }
+    .contents table thead th {
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      border-left: 2px solid #FFFFFF;
+    }
+    .contents table thead th:first-child {
+      border-left: none;
+    }
+
+    tr.highlight {
+      font-weight: bold;
+      font-size: 80%;
+    }
+
+    .contents h3 {
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+
+    .contents .subtitle {
+      font-weight: bold;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+{% endblock %}
+
+{% block topmatter %}
+<div class="contenttitle">Expert Testimony by Tom J. Keith &amp; Associates</div>
+{% endblock %}
+
+{% block entries %}
+  <h3>Appraiser Results Of Condemnation Awards</h3>
+  <div class="subtitle"><strong>Bold</strong> appraisals indicate jury trials</div>
+  <table>
+    <thead><tr><th>Owner</th><th>Date</th><th>Property Type</th><th>Attorney</th><th>Appraiser</th><th>Condemnor Offer</th><th>Appr's Est. of Damages</th><th>Settement</th><th>Gain Above Condemnor Offer</th><th>% Increase Over Offer</th></tr></thead><tbody>
+
+  {% load humanize %}
+  {% for t in condemnations %}
+  <tr {% if t.is_jury_trial %}class="highlight"{% endif %}><td>{{ t.owner }}</td><td>{{ t.date | date:"n/j/Y"}}</td><td>{{ t.property_type }}</td><td>{{ t.attorney }}</td><td>{{ t.appraiser }}</td><td>${{ t.condemnor_offer | intcomma }}</td><td>${{ t.appraisers_estimate | intcomma }}</td><td>${{ t.settlement | intcomma }}</td><td>${{ t.gain_above_offer | intcomma }}</td><td>{{ t.percent_increase_over_offer | floatformat:2 }}%</td></tr>
+    {% endfor %}
+</tbody></table>
+<hr>
+
+<h3>Quasi-Judicial Hearings</h3>
+<div class="subtitle">Impact Studies for Special/Conditional Use Permits</div>
+<table>
+<thead>
+ <tr><th>Case #</th><th>Expert Witness</th><th>Jurisdiction</th><th>Appraiser's Testimony</th><th>Decision</th><th>Hearing</th></tr>
+</thead>
+  {% for t in hearings %}
+  <tr><td>{{ t.case_number }}</td><td>{{ t.expert_witness }}</td><td>{{ t.jurisdiction }}</td><td>{{ t.appraiser_testimony }}</td><td>{% if t.agreed %}Agree{% else %}Disagree{% endif %}</td><td>{{ t.date | date:"n/j/Y" }}</td></tr>
+  {% endfor %}
+</tbody></table>
+
+{% endblock %}

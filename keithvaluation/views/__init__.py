@@ -4,3 +4,4 @@ from .property import *
 from .links import *
 from .research import *
 from .staff import *
+from .testimony import *

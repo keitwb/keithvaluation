@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   app: &app
     command: "tail -f /dev/null"
@@ -6,19 +6,20 @@ services:
      - ".:/app"
     environment: &env
       DJANGO_DEBUG: 'y'
-      SITE_HOSTNAME: &app_host 'dev.keithvaluation.com'
-      DJANGO_STATIC_HOSTNAME: 'www.dev.keithvaluation.com'
+      SITE_HOSTNAME: &app_host "${SITE_HOSTNAME:-dev.keithvaluation.com}"
+      DJANGO_STATIC_HOSTNAME: "${DJANGO_STATIC_HOSTNAME:-www.dev.keithvaluation.com}"
       DJANGO_STATIC_PATH: '/static/'
   admin:
     <<: *app
     environment:
       <<: *env
-      SITE_HOSTNAME: &admin_host 'dev-admin.keithvaluation.com'
-      DJANGO_STATIC_HOSTNAME: 'dev-admin.keithvaluation.com'
+      SITE_HOSTNAME: &admin_host "${ADMIN_SITE_HOSTNAME:-dev-admin.keithvaluation.com}"
+      DJANGO_STATIC_HOSTNAME: "${ADMIN_DJANGO_STATIC_HOSTNAME:-dev-admin.keithvaluation.com}"
+      DJANGO_ADMIN: 'y'
 
   nginx_http:
     ports:
-      - "127.0.7.1:80:80"
+      - "0.0.0.0:80:80"
     environment: &nginx_env
       APP_HOSTNAME: *app_host
       ADMIN_HOSTNAME: *admin_host
@@ -27,7 +28,7 @@ services:
     environment:
       <<: *nginx_env
     ports:
-      - "127.0.7.1:443:443"
+      - "0.0.0.0:443:443"
     volumes:
-      - "./dev-ssl:/etc/letsencrypt/live/dev-admin.keithvaluation.com"
-      - "./dev-ssl:/etc/letsencrypt/live/www.dev.keithvaluation.com"
+      - "./dev-ssl:/etc/letsencrypt/live/${ADMIN_SITE_HOSTNAME}"
+      - "./dev-ssl:/etc/letsencrypt/live/www.${SITE_HOSTNAME}"

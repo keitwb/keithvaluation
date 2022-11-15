@@ -1,4 +1,4 @@
-FROM nginx:1.10.0
+FROM nginx:1.23
 MAINTAINER Ben Keith <keitwb@gmail.com>
 
 ENTRYPOINT ["/bin/bash", "-ec"]

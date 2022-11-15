@@ -2,6 +2,8 @@ keithvaluation/settings/local.py
 .vagrant
 
 *.pyc
+.env
 tmp/
+venv/
 ansible/vault.pem
 ansible/playbook.retry

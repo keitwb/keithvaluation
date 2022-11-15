@@ -1,10 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.urls import path, re_path, include
 
 from .admin import kv_admin_site
 
 
 urlpatterns = [
-    url(r'', include(kv_admin_site.urls)),
-    url(r'^grappelli/', include('grappelli.urls')),
+    path(r'', kv_admin_site.urls),
+    re_path(r'^grappelli/', include('grappelli.urls')),
 ]
 

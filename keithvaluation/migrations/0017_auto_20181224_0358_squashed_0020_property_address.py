@@ -7,7 +7,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    replaces = [(b'keithvaluation', '0017_auto_20181224_0358'), (b'keithvaluation', '0018_property_zoning'), (b'keithvaluation', '0019_property_city'), (b'keithvaluation', '0020_property_address')]
+    replaces = [('keithvaluation', '0017_auto_20181224_0358'), ('keithvaluation', '0018_property_zoning'), ('keithvaluation', '0019_property_city'), ('keithvaluation', '0020_property_address')]
 
     dependencies = [
         ('keithvaluation', '0016_businesslisting'),
@@ -21,32 +21,32 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='property',
             name='building_sqft',
-            field=models.IntegerField(blank=True, help_text=b'Total square footage of all buildings on the property', null=True),
+            field=models.IntegerField(blank=True, help_text='Total square footage of all buildings on the property', null=True),
         ),
         migrations.AddField(
             model_name='property',
             name='sale_price',
-            field=models.IntegerField(blank=True, help_text=b'Sale price if for sale', null=True),
+            field=models.IntegerField(blank=True, help_text='Sale price if for sale', null=True),
         ),
         migrations.AlterField(
             model_name='property',
             name='available_for_lease',
-            field=models.BooleanField(default=False, help_text=b'A property we are willing to lease (not hunting leases)'),
+            field=models.BooleanField(default=False, help_text='A property we are willing to lease (not hunting leases)'),
         ),
         migrations.AlterField(
             model_name='property',
             name='available_to_hunt',
-            field=models.BooleanField(default=False, help_text=b'Is it hunting land that we lease out?'),
+            field=models.BooleanField(default=False, help_text='Is it hunting land that we lease out?'),
         ),
         migrations.AlterField(
             model_name='property',
             name='boundary_points',
-            field=models.TextField(blank=True, help_text=b'List of lat, long pairs (one per line, comma between lat and long) tracing out the property.  Multiple rings can be specified with a blank line between them', null=True),
+            field=models.TextField(blank=True, help_text='List of lat, long pairs (one per line, comma between lat and long) tracing out the property.  Multiple rings can be specified with a blank line between them', null=True),
         ),
         migrations.AddField(
             model_name='property',
             name='zoning',
-            field=models.CharField(blank=True, help_text=b'Zoning district/code of the property', max_length=256, null=True),
+            field=models.CharField(blank=True, help_text='Zoning district/code of the property', max_length=256, null=True),
         ),
         migrations.AddField(
             model_name='property',

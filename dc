@@ -2,4 +2,4 @@
 
 SCRIPTDIR=$( cd $(dirname $0) ; pwd -P )
 
-exec docker-compose -p kv -f $SCRIPTDIR/docker-compose.yml -f $SCRIPTDIR/docker-compose.dev.yml $@
+exec docker compose -p kv -f $SCRIPTDIR/docker-compose.yml -f $SCRIPTDIR/docker-compose.dev.yml $@
