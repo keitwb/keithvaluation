@@ -8,9 +8,9 @@
 - name: Start containers (except https)
   command: dc-kv up -d nginx_http
 
-- include: data.yml
+- include_tasks: data.yml
 
-- include: ssl.yml
+- include_tasks: ssl.yml
   vars:
     domain: "{{ admin_hostname }}"
     volume: "{{ project_name }}_letsencrypt"
@@ -18,7 +18,7 @@
   tags:
     - ssl
 
-- include: ssl.yml
+- include_tasks: ssl.yml
   vars:
     domain: "www.{{ app_hostname }}"
     volume: "{{ project_name }}_letsencrypt"

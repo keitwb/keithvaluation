@@ -1,6 +1,6 @@
 ---
 - name: Install AWS CLI tool
-  pip: name=awscli version=1.9.17 state=present
+  pip: name=awscli version=latest state=present
 
 - name: Install DB Backup Script
   copy: src=backup-db dest=/usr/local/bin/backup-db mode=0755

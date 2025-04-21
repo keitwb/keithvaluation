@@ -22,7 +22,7 @@ services:
   nginx_http: &http
     restart: always
     ports:
-     - "80:80"
+     - "172.31.75.105:80:80"
     volumes:
       - "/docker-run/nginx-root:/var/tmp/nginx"
     environment: &nginx_env
@@ -34,7 +34,7 @@ services:
   nginx_https:
     <<: *http
     ports:
-     - "443:443"
+     - "172.31.75.105:443:443"
     volumes:
       - "letsencrypt:/etc/letsencrypt"
     environment:
