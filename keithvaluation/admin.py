@@ -19,7 +19,7 @@ kv_admin_site = KVAdminSite(name="kvadmin")
 
 class AdminImageWidget(AdminFileWidget):
     def render(self, name, value, attrs=None, renderer=None):
-        if value.url:
+        if value is not None and hasattr(value, 'url') and value.url:
             img_tag = '<img src="%s"><br />' % value.url
         else:
             img_tag = ""
